@@ -52,6 +52,19 @@
           <br><br>
           <img src="networkinterface.png" width="80%">
           <br><br>
+
+
+			In order to actually access all the options required by the rest of this section, you will first need to create an android studio project. The way the FTC SDK (software development kit) is set up requires you to have the entire software kit built to the robot every time - you are quite literally recompiling the entire robot system. Therefore, you need to get the actual SDK from github in order to modify it with your own code. Firstly, this guide assumes you are going to use Pedro Pathing and thus can use the Pedro quickstart, which comes packaged with the FTC SDK, Pedro, FTCDashboard, and some other essential utilities. I will tell you about all of those later.</br>
+
+			Firstly, you need git. I will go on a quick rant about git vs github. GIT is a local program, an executable. It is a code sourcing tool, allowing you to have a repository (instance of git) inside your project. You can add files to git and commit your changes. This allows you to go back and forwards in time through your various changes, as well as keeping a record of what you have done. This also allows for collaboration. If two people make two different commits, they can be merged together into the final repository. There is a lot more to understand about git, but I will talk about how to use it in the git section. Github is simply a website that allows you to store your git projects on the cloud, with some additional management baked in. This is where the collaboration comes into play. More on that later, but for now all you need to know is that you can install git on windows with the command winget install git.git. MacOS is a bit more complicated, and as I do not have access to a mac you will have to google it.</br>
+
+			Once you have git installed, you must open a terminal window and find somewhere you want to store your FTC project. You can navigate in your terminal with the commands cd and dir (ls on mac). CD Goes into a directory, you start in your user folder. ls/dir lists all the files and folders in your directory. You can use mkdir to create a directory (folder). </br>
+
+			<img src="cloning.png">
+
+			Once you have the repository, I trust that you are capable of finding it and opening it in android studio.
+
+
           A massive part of the android studio appeal is that you can compile and push code using a tool called ADB (Android Debug Bridge). This allows you to compile the code on your laptop and rebuild the robots firmware. This does unfortunately take a minute or two, and during this time the LED on the control hub will be blue.
           <br><br>
           ADB needs to be used from within the command line (terminal). On Windows / macOS open the "terminal" application. ADB always uses port 5555, but you do not need to specify this as it will be used by default. Intuitively, the command to connect to the robot is:<br>
