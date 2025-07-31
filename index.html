@@ -1,44 +1,161 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>
-			IRON LIONS FTC
-		</title>
-		<link rel="stylesheet" href="style.css">
-	</head>
-	<body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Iron Lions FTC 24089</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+</head>
+<body>
 
+  <!-- Fixed Title Layer -->
+  <div id="fixed-title">
+    <h1>IRON LIONS</h1>
+    <h2>FTC TEAM 24089</h2>
+  </div>
 
+  <!-- Background Image Layer -->
+  <div id="hero-bg"></div>
 
-		<div class="header">
-			<a href="https://github.com/ironlionsftc">
-				<button class="header_button">
-					GITHUB	
-				</button>
-			</a>
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#outreach">Outreach</a></li>
+      </ul>
+    </nav>
+  </header>
 
-			<a href="team.html">
-				<button class="header_button">
-					TEAM
-				</button>
-			</a>
+  <main>
+    <!-- ABOUT -->
+    <section id="about" class="block light">
+      <div class="content" data-aos="fade-up">
+        <h2>About Us</h2>
+        <img src="robot.jpg" alt="Iron Lions Team Photo" />
+        <p>
+          The Iron Lions FTC Team 24089 is a passionate group of students driven by innovation, teamwork, and STEM excellence. We strive to build not only competitive robots but also foster leadership and community engagement through FIRST Tech Challenge. Our dedication spans designing, programming, and competing with resilience and creativity.
+        </p>
+      </div>
+    </section>
 
-			<a href="tutorials.html">
-				<button class="header_button">
-					TUTORIALS
-				</button>
-			</a>
-		</div>
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements" class="block dark">
+      <div class="content" style="text-align:center;">
+        <h2 data-aos="fade-down">Achievements</h2>
 
+        <!-- APOC section -->
+        <div class="achievement apoc" data-aos="fade-left">
+          <div class="image-pair">
+            <img src="apoc.jpg" alt="APOC Champions" />
+            <img src="award.jpg" alt="Award Ceremony" />
+          </div>
 
+          <div class="video-text-row">
+            <div class="video-container">
+              <iframe
+                src="https://www.youtube.com/embed/eLr15aCYTW8"
+                title="APOC Championship Video"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="text">
+              <h3>APOC Champions</h3>
+              <p>
+                After months of rigorous preparation and teamwork, the Iron Lions proudly secured first place at the prestigious Asia-Pacific Open Championship. Our robot demonstrated exceptional consistency, dominating both autonomous and driver-controlled phases, a testament to our programming excellence and strategic design.
+              </p>
+            </div>
+          </div>
+        </div>
 
+        <!-- Inspire section -->
+        <div class="achievement inspire" data-aos="fade-right">
+          <div class="img-left">
+            <img src="inspire.jpg" alt="Inspire Award" />
+          </div>
+          <div class="text-right">
+            <h3>Inspire Award at APOC</h3>
+            <p>
+              Winning the Inspire Award at APOC highlights our commitment beyond robotics, recognizing excellence in team outreach, community involvement, and gracious professionalism. This award reflects our dedication to inspiring others and building a positive FIRST culture.
+            </p>
+          </div>
+        </div>
 
-		<div class="image_and_text_container">
-			<img style="width:250px" src="logo.png">
-			<div class="text_column">
-				We are a small Australian FTC team from Sunshine Coast Grammar School
-			</div>
-			<img style="width:250px" src="logo.png">
-		</div>
-	</body>
+        <!-- Nationals section -->
+        <div class="achievement nationals" data-aos="fade-left">
+          <div class="text-left">
+            <h3>2nd Place - Australia Nationals</h3>
+            <p>
+              Our strong performance at the Australia Nationals earned us second place, showcasing our ability to compete at a high level nationally. The experience strengthened our skills and fueled our passion for continuous improvement and excellence.
+            </p>
+          </div>
+          <div class="img-right">
+            <img src="team.jpg" alt="Australia Nationals Runner-Up" />
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- OUTREACH -->
+    <section id="outreach" class="block light">
+      <div class="content" data-aos="zoom-in">
+        <h2>Outreach</h2>
+        <img
+          src="https://www.firstinspires.org/sites/all/themes/first/assets/images/first-tech-challenge-logo.png"
+          alt="FTC Logo"
+          class="logo"
+        />
+        <div class="outreach-events">
+          <div class="event-card" data-aos="fade-up">
+            <h3>OUTREACH 1</h3>
+            <p>
+			Todo
+            </p>
+          </div>
+          <div class="event-card" data-aos="fade-up" data-aos-delay="100">
+            <h3>OUTREACH 2</h3>
+            <p>
+			Todo
+            </p>
+          </div>
+          <div class="event-card" data-aos="fade-up" data-aos-delay="200">
+            <h3>OUTREACH 3</h3>
+            <p>
+			Todo
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="block dark">
+    <p>© 2025 Iron Lions | Made by Harrison Chapman</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: false,
+      duration: 1200,
+      offset: 150,
+    });
+  </script>
+
+  <script>
+    window.addEventListener("scroll", () => {
+      const title = document.getElementById("fixed-title");
+      if (window.scrollY > 100) {
+        title.classList.add("hidden");
+      } else {
+        title.classList.remove("hidden");
+      }
+    });
+  </script>
+</body>
 </html>
