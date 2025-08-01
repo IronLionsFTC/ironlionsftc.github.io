@@ -29,6 +29,16 @@
     </nav>
   </header>
 
+  <!-- Contact link in menu -->
+  <style>
+    .contact-link {
+      font-weight: bold;
+    }
+  </style>
+  <script>
+    // Optionally highlight the contact link if needed
+  </script>
+
   <main>
     <!-- ABOUT -->
     <section id="about" class="block light">
@@ -114,25 +124,56 @@
           <div class="event-card" data-aos="fade-up">
             <h3>OUTREACH 1</h3>
             <p>
-			Todo
+      Todo
             </p>
           </div>
           <div class="event-card" data-aos="fade-up" data-aos-delay="100">
             <h3>OUTREACH 2</h3>
             <p>
-			Todo
+      Todo
             </p>
           </div>
           <div class="event-card" data-aos="fade-up" data-aos-delay="200">
             <h3>OUTREACH 3</h3>
             <p>
-			Todo
+      Todo
             </p>
           </div>
         </div>
       </div>
     </section>
   </main>
+
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="block dark">
+    <div class="content" data-aos="fade-up">
+      <h2>Contact</h2>
+      <ul style="list-style:none; padding:0; font-size:1.2em;">
+        <li>
+          <a class="contact-link-nice" href="mailto:ironlionsftc@gmail.com">Email</a>
+        </li>
+        <li>
+          <a class="contact-link-nice" href="https://discord.com/users/733568404081999932" target="_blank">Discord</a>
+        </li>
+        <li>
+          <a class="contact-link-nice" href="https://www.instagram.com/ironlionsftc/" target="_blank">Instagram</a>
+        </li>
+      </ul>
+      <style>
+        .contact-link-nice {
+          color: #ffb347;
+          text-decoration: none;
+          font-weight: bold;
+          transition: color 0.2s;
+        }
+        .contact-link-nice:hover {
+          color: #ffd580;
+          text-decoration: underline;
+        }
+      </style>
+    </div>
+  </section>
 
   <footer class="block dark">
     <p>© 2025 Iron Lions | Made by Harrison Chapman</p>
@@ -145,6 +186,20 @@
       duration: 1200,
       offset: 150,
     });
+  </script>
+
+  <script>
+    // Add Contact to nav menu dynamically for consistency
+    const navList = document.querySelector('nav ul');
+    if (navList) {
+      const contactLi = document.createElement('li');
+      const contactA = document.createElement('a');
+      contactA.href = '#contact';
+      contactA.textContent = 'Contact';
+      contactA.className = 'contact-link';
+      contactLi.appendChild(contactA);
+      navList.appendChild(contactLi);
+    }
   </script>
 
   <script>
