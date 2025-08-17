@@ -1,4 +1,5 @@
 import Section from "@/components/Section";
+import FtcQuickStats from "@/components/FtcQuickStats";
 import { SEASONS } from "@/data/site";
 import { ExternalLink } from "lucide-react";
 
@@ -48,14 +49,19 @@ const AWARDS: AwardItem[] = [
 export default function Achievements() {
   return (
     <>
+      {/* Live stats from FTC Scout */}
+      <Section kicker="Live" title="Team Performance">
+        <FtcQuickStats teamNumber={24089} season={2024} />
+      </Section>
+
+      {/* Awards / Events */}
       <Section kicker="Highlights" title="Achievements & Seasons">
         <div className="grid gap-6">
-          {/* Event cards */}
           <div className="space-y-4">
             {AWARDS.map((a, idx) => (
               <div key={idx} className="card p-6 md:p-7">
                 <div className="md:grid md:grid-cols-12 md:gap-6 items-start">
-                  {/* Left: details */}
+                  {/* Left: event + results */}
                   <div className="md:col-span-9">
                     <div className="flex flex-wrap items-baseline gap-x-3">
                       <span className="text-zinc-400 text-xs uppercase tracking-widest">{a.year}</span>
@@ -70,7 +76,7 @@ export default function Achievements() {
                     </ul>
                   </div>
 
-                  {/* Right: partner + view match */}
+                  {/* Right: alliance partner + optional video button */}
                   <div className="md:col-span-3 mt-4 md:mt-0 md:pl-6 md:border-l border-white/10">
                     {(a.partner || a.video) ? (
                       <div className="rounded-xl border border-white/10 bg-white/5 px-4 py-3">
@@ -102,7 +108,7 @@ export default function Achievements() {
             ))}
           </div>
 
-          {/* Season info cards */}
+          {/* Season reference cards */}
           <div className="grid md:grid-cols-3 gap-6 mt-2">
             {SEASONS.map((s) => (
               <div key={s.year} className="card p-6 tilt">
