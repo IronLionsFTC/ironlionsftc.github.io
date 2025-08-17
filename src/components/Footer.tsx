@@ -1,5 +1,6 @@
-import { SOCIALS, TEAM } from "@/data/site";
+import { SOCIALS } from "@/data/site";
 import { Github, Instagram, Youtube } from "lucide-react";
+import Logo from "./Logo";
 
 const ICONS: Record<string, JSX.Element> = {
   github: <Github />,
@@ -13,11 +14,12 @@ export default function Footer() {
     <footer className="mt-20 border-t border-white/10 bg-black/40">
       <div className="mx-auto max-w-7xl px-4 py-10 grid gap-8 md:grid-cols-3">
         <div>
-          <div className="font-display text-lg">Iron Lions — FTC {TEAM.number}</div>
-          <p className="text-sm text-zinc-400 mt-2">
+          <Logo className="mb-3" />
+          <p className="text-sm text-zinc-400">
             Sunshine Coast robotics team competing in FIRST Tech Challenge.
           </p>
         </div>
+
         <div>
           <div className="text-sm uppercase tracking-widest text-zinc-400">Links</div>
           <ul className="mt-3 space-y-2 text-sm">
@@ -28,19 +30,26 @@ export default function Footer() {
             <li><a className="hover:text-blue-400" href="/contact">Contact</a></li>
           </ul>
         </div>
+
         <div>
           <div className="text-sm uppercase tracking-widest text-zinc-400">Social</div>
           <div className="mt-3 flex gap-3">
             {SOCIALS.map(s => (
-              <a key={s.label} href={s.href} aria-label={s.label} className="p-2 rounded-lg border border-white/10 hover:border-blue-600/40 hover:text-blue-300 transition tilt">
+              <a
+                key={s.label}
+                href={s.href}
+                aria-label={s.label}
+                className="p-2 rounded-lg border border-white/10 hover:border-blue-600/40 hover:text-blue-300 transition tilt"
+              >
                 {ICONS[s.icon]}
               </a>
             ))}
           </div>
         </div>
       </div>
+
       <div className="border-t border-white/10 text-xs text-zinc-500 py-4 text-center">
-        © {year} {TEAM.name}. FIRST® and FTC® are trademarks of FIRST. Used for team identification only.
+        © {year} Iron Lions. FIRST® and FTC® are trademarks of FIRST. Used for team identification only.
       </div>
     </footer>
   );
