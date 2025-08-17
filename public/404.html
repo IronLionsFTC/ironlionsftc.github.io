@@ -1,12 +1,30 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Iron Lions</title>
-    <meta http-equiv="refresh" content="0; url=/" />
+    <title>Redirecting…</title>
+    <!-- Single Page Apps for GitHub Pages
+         MIT: https://github.com/rafrex/spa-github-pages -->
     <script>
-      (function(l){ var p = l.pathname; l.replace('/' + (p.startsWith('/') ? p.slice(1) : p));})(window.location);
+      (function () {
+        var l = window.location;
+        var segmentCount = 0; // root domain (ironlionsftc.com)
+        var base = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/';
+        var path = l.pathname.split('/').slice(1, 1 + segmentCount).join('/');
+        if (path !== '') path += '/';
+        var redirect =
+          base +
+          path +
+          '?p=' +
+          l.pathname.slice(1).replace(/&/g, '~and~') +
+          (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash;
+        l.replace(redirect);
+      })();
     </script>
+    <noscript>
+      <meta http-equiv="refresh" content="0; url=/" />
+    </noscript>
   </head>
   <body></body>
 </html>

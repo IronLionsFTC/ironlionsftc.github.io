@@ -2,35 +2,38 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Iron Lions FTC 24089</title>
     <meta name="description" content="Iron Lions FTC Team 24089 — Sunshine Coast robotics team competing in FIRST Tech Challenge." />
     <meta name="theme-color" content="#0a0a0a" />
-
-    <!-- SEO / Social -->
-    <link rel="canonical" href="https://ironlionsftc.com/" />
     <meta property="og:title" content="Iron Lions FTC 24089" />
     <meta property="og:description" content="Official website for Iron Lions — FIRST Tech Challenge Team 24089." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/images/logo.webp" />
-    <meta property="og:image:type" content="image/webp" />
-    <meta property="og:image:alt" content="Iron Lions logo" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Iron Lions FTC 24089" />
-    <meta name="twitter:description" content="Official website for Iron Lions — FIRST Tech Challenge Team 24089." />
-    <meta name="twitter:image" content="/images/logo.webp" />
+    <meta property="og:image" content="/assets/logo.webp" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet" />
 
-    <!-- Favicon -->
-    <link rel="icon" href="/images/logo.webp" type="image/webp" />
+    <link rel="icon" href="/assets/logo.webp" />
+
+    <!-- Decode redirect from 404.html (spa-github-pages) -->
+    <script>
+      (function (l) {
+        if (l.search && l.search.startsWith('?p=')) {
+          var qIndex = l.search.indexOf('&q=');
+          var path = decodeURIComponent(
+            (qIndex === -1 ? l.search.slice(3) : l.search.slice(3, qIndex)).replace(/~and~/g, '&')
+          );
+          var query = qIndex === -1 ? '' : '?' + decodeURIComponent(l.search.slice(qIndex + 3).replace(/~and~/g, '&'));
+          var newUrl = '/' + path + query + l.hash;
+          window.history.replaceState(null, null, newUrl);
+        }
+      })(window.location);
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <noscript>This site requires JavaScript to run.</noscript>
   </body>
 </html>
