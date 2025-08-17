@@ -12,7 +12,7 @@ export default function Sponsors() {
               Your support funds robot parts, registration fees, travel, and outreach.
               Sponsors receive recognition online, at events, and on the robot.
             </p>
-            <a href="/#support" className="inline-block mt-4 rounded-xl border border-amber-500/40 bg-amber-500/10 px-4 py-2 text-amber-300 hover:bg-amber-500/20">Download sponsor pack (PDF)</a>
+            <a href="/#support" className="inline-block mt-4 rounded-xl border border-blue-600/40 bg-blue-600/10 px-4 py-2 text-blue-300 hover:bg-blue-600/20">Download sponsor pack (PDF)</a>
           </div>
           <div className="card p-6">
             <div className="font-medium">Current Sponsors</div>

@@ -15,6 +15,7 @@ export default function App() {
     <div className="min-h-screen flex flex-col">
       <NavBar />
       <ScrollToTop />
+      {/* Landing hero */}
       <motion.section
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
@@ -24,18 +25,19 @@ export default function App() {
         <div className="mx-auto max-w-7xl px-4 pt-12 pb-8">
           <div className="card p-8 md:p-12">
             <h1 className="font-display text-4xl md:text-6xl">
-              Iron Lions <span className="text-amber-400">FTC 24089</span>
+              Iron Lions <span className="text-blue-400">FTC 24089</span>
             </h1>
             <p className="mt-4 text-lg text-zinc-300 max-w-2xl">
               Subtle, premium, and fast. An animated site for a serious robotics team.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link to="/about" className="rounded-xl border border-amber-500/40 bg-amber-500/10 px-4 py-2 text-amber-300 hover:bg-amber-500/20">About the team</Link>
+              <Link to="/about" className="rounded-xl border border-blue-600/40 bg-blue-600/10 px-4 py-2 text-blue-300 hover:bg-blue-600/20">About the team</Link>
               <Link to="/achievements" className="rounded-xl border border-white/10 px-4 py-2 hover:bg-white/5">Achievements</Link>
             </div>
           </div>
         </div>
       </motion.section>
+
       <main className="flex-1">
         <Routes>
           <Route path="/" element={<About />} />
@@ -47,6 +49,7 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
+
       <Footer />
     </div>
   );

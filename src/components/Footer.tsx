@@ -21,18 +21,18 @@ export default function Footer() {
         <div>
           <div className="text-sm uppercase tracking-widest text-zinc-400">Links</div>
           <ul className="mt-3 space-y-2 text-sm">
-            <li><a className="hover:text-amber-400" href="/about">About</a></li>
-            <li><a className="hover:text-amber-400" href="/achievements">Achievements</a></li>
-            <li><a className="hover:text-amber-400" href="/outreach">Outreach</a></li>
-            <li><a className="hover:text-amber-400" href="/sponsors">Sponsors</a></li>
-            <li><a className="hover:text-amber-400" href="/contact">Contact</a></li>
+            <li><a className="hover:text-blue-400" href="/about">About</a></li>
+            <li><a className="hover:text-blue-400" href="/achievements">Achievements</a></li>
+            <li><a className="hover:text-blue-400" href="/outreach">Outreach</a></li>
+            <li><a className="hover:text-blue-400" href="/sponsors">Sponsors</a></li>
+            <li><a className="hover:text-blue-400" href="/contact">Contact</a></li>
           </ul>
         </div>
         <div>
           <div className="text-sm uppercase tracking-widest text-zinc-400">Social</div>
           <div className="mt-3 flex gap-3">
             {SOCIALS.map(s => (
-              <a key={s.label} href={s.href} aria-label={s.label} className="p-2 rounded-lg border border-white/10 hover:border-amber-500/40 hover:text-amber-300 transition tilt">
+              <a key={s.label} href={s.href} aria-label={s.label} className="p-2 rounded-lg border border-white/10 hover:border-blue-600/40 hover:text-blue-300 transition tilt">
                 {ICONS[s.icon]}
               </a>
             ))}

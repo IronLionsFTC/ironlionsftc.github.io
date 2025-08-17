@@ -21,7 +21,7 @@ export default function Section({
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        {kicker && <div className="text-xs uppercase tracking-[0.2em] text-amber-400/80">{kicker}</div>}
+        {kicker && <div className="text-xs uppercase tracking-[0.2em] text-blue-400/80">{kicker}</div>}
         {title && <h2 className="mt-2 font-display text-3xl md:text-4xl">{title}</h2>}
         <div className="mt-6">{children}</div>
       </motion.div>

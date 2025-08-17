@@ -8,13 +8,13 @@ export default function Contact() {
         <div className="grid md:grid-cols-2 gap-6">
           <div className="card p-6">
             <div className="font-medium">Email</div>
-            <a className="text-sm text-amber-300 underline underline-offset-4" href={`mailto:${TEAM.email}`}>{TEAM.email}</a>
+            <a className="text-sm text-blue-300 underline underline-offset-4" href={`mailto:${TEAM.email}`}>{TEAM.email}</a>
 
             <div className="font-medium mt-6">Social</div>
             <ul className="mt-2 text-sm text-zinc-400 space-y-2">
               {SOCIALS.map(s => (
                 <li key={s.label}>
-                  <a className="hover:text-amber-300 underline underline-offset-4" href={s.href} target="_blank" rel="noreferrer">{s.label}</a>
+                  <a className="hover:text-blue-300 underline underline-offset-4" href={s.href} target="_blank" rel="noreferrer">{s.label}</a>
                 </li>
               ))}
             </ul>

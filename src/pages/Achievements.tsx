@@ -23,7 +23,7 @@ export default function Achievements() {
                 <p className="text-sm text-zinc-400 mt-2">{s.summary}</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {s.links.map((l) => (
-                    <a key={l.href} className="text-xs underline underline-offset-4 hover:text-amber-300 inline-flex items-center gap-1" href={l.href} target="_blank" rel="noreferrer">
+                    <a key={l.href} className="text-xs underline underline-offset-4 hover:text-blue-300 inline-flex items-center gap-1" href={l.href} target="_blank" rel="noreferrer">
                       {l.label} <ExternalLink size={14} />
                     </a>
                   ))}

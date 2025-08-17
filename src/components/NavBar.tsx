@@ -23,14 +23,18 @@ export default function NavBar() {
             <NavLink
               key={l.to}
               to={l.to}
-              className={({isActive}) => 
-                `text-sm hover:text-amber-400 transition ${isActive ? "text-amber-400" : "text-zinc-300"}`
+              className={({isActive}) =>
+                `text-sm hover:text-blue-400 transition ${isActive ? "text-blue-400" : "text-zinc-300"}`
               }>
               {l.label}
             </NavLink>
           ))}
-          <a className="ml-2 rounded-xl border border-amber-500/40 bg-amber-500/10 px-3 py-1.5 text-sm text-amber-300 hover:bg-amber-500/20 transition"
-             href="/#support">Support Us</a>
+          <a
+            className="ml-2 rounded-xl border border-blue-600/40 bg-blue-600/10 px-3 py-1.5 text-sm text-blue-300 hover:bg-blue-600/20 transition"
+            href="/#support"
+          >
+            Support Us
+          </a>
         </nav>
         <button className="md:hidden p-2 rounded-lg border border-white/10" onClick={() => setOpen(v=>!v)} aria-label="Toggle menu">
           {open ? <X size={20}/> : <Menu size={20}/>}
@@ -45,11 +49,11 @@ export default function NavBar() {
                 key={l.to}
                 to={l.to}
                 onClick={() => setOpen(false)}
-                className="py-2 text-zinc-200 hover:text-amber-400">
+                className="py-2 text-zinc-200 hover:text-blue-400">
                 {l.label}
               </NavLink>
             ))}
-            <a href="/#support" onClick={() => setOpen(false)} className="py-2 text-amber-300">Support Us</a>
+            <a href="/#support" onClick={() => setOpen(false)} className="py-2 text-blue-300">Support Us</a>
           </div>
         </div>
       )}
