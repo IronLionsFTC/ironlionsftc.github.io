@@ -1,6 +1,7 @@
 import Section from "@/components/Section";
 import { TEAM } from "@/data/site";
 import { motion } from "framer-motion";
+import Slideshow from "@/components/Slideshow";
 
 export default function About() {
   return (
@@ -26,21 +27,23 @@ export default function About() {
               </div>
             </div>
 
-            {/* Image: cover, no letterboxing */}
             <motion.div
               className="flex-1"
-              initial={{ opacity: 0, scale: 0.98 }}
+              initial={{ opacity: 0, scale: 0.99 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.4 }}
             >
-              <div className="overflow-hidden rounded-2xl border border-white/10 shadow-soft">
-                <img
-                  src="/images/robots/apocrobot.webp"
-                  alt="Iron Lions robot — APOC"
-                  className="block w-full h-full object-cover"
-                  loading="eager"
-                />
-              </div>
+              <Slideshow
+                images={[
+                  "/images/robots/apocrobot.webp", // first
+                  "/images/robots/apoc1.webp",
+                  "/images/robots/apoc2.webp",
+                  "/images/robots/apoc3.webp",
+                  "/images/team/apoc4.webp",     // these two are in team/
+                  "/images/team/apoc5.webp",
+                ]}
+                intervalMs={3000}
+              />
             </motion.div>
           </div>
         </div>
