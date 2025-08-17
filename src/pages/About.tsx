@@ -63,7 +63,7 @@ export default function About() {
           ))}
         </div>
         <p className="text-xs text-zinc-500 mt-4">
-          FTC seasons include 2025–26 <em>DECODE™</em> (kickoff Sept 6, 2025), 2024–25 <em>INTO THE DEEP℠</em>, and 2023–24 <em>CENTERSTAGE℠</em>.
+          FTC seasons include 2025–26 <em>DECODE™</em>, 2024–25 <em>INTO THE DEEP℠</em>, and 2023–24 <em>CENTERSTAGE℠</em>.
         </p>
       </Section>
     </>
