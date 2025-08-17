@@ -26,21 +26,21 @@ export default function About() {
               </div>
             </div>
 
-            {/* Hero image using your file in public/images/robots/apocrobot.webp */}
+            {/* Image: cover, no letterboxing */}
             <motion.div
               className="flex-1"
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6 }}
             >
-              <img
-                src="/images/robots/apocrobot.webp"
-                alt="Iron Lions robot — APOC"
-                className="w-full h-56 md:h-72 rounded-2xl border border-white/10 object-contain bg-black/40"
-                width={1200}
-                height={800}
-                loading="eager"
-              />
+              <div className="overflow-hidden rounded-2xl border border-white/10 shadow-soft">
+                <img
+                  src="/images/robots/apocrobot.webp"
+                  alt="Iron Lions robot — APOC"
+                  className="block w-full h-full object-cover"
+                  loading="eager"
+                />
+              </div>
             </motion.div>
           </div>
         </div>

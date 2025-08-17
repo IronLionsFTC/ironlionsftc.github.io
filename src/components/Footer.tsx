@@ -39,6 +39,8 @@ export default function Footer() {
                 key={s.label}
                 href={s.href}
                 aria-label={s.label}
+                target="_blank"
+                rel="noreferrer"
                 className="p-2 rounded-lg border border-white/10 hover:border-blue-600/40 hover:text-blue-300 transition tilt"
               >
                 {ICONS[s.icon]}
@@ -50,6 +52,7 @@ export default function Footer() {
 
       <div className="border-t border-white/10 text-xs text-zinc-500 py-4 text-center">
         © {year} Iron Lions. FIRST® and FTC® are trademarks of FIRST. Used for team identification only.
+        <span className="mx-1">•</span> Made by Taha Salman
       </div>
     </footer>
   );
