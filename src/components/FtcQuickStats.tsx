@@ -61,13 +61,6 @@ export default function FtcQuickStats(_props: Props) {
         })}
       </div>
 
-      <div className="mt-4 text-[11px] text-zinc-500">
-        Data snapshot entered by team. Link to{" "}
-        <a className="underline hover:text-blue-300" href="https://ftcscout.org/teams/24089" target="_blank" rel="noreferrer">
-          FTC Scout
-        </a>
-        .
-      </div>
     </div>
   );
 }
