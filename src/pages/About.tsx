@@ -13,21 +13,34 @@ export default function About() {
                 {TEAM.name} <span className="text-blue-400">FTC {TEAM.number}</span>
               </h1>
               <p className="mt-4 text-zinc-300 leading-relaxed">
-                We’re a student-led robotics team competing in the <span className="text-blue-300">FIRST® Tech Challenge</span>. 
+                We’re a student-led robotics team competing in the <span className="text-blue-300">FIRST® Tech Challenge</span>.
                 Our mission is to engineer competitive robots, grow STEM skills, and support our community through outreach and mentoring.
               </p>
               <div className="mt-6 flex gap-3">
-                <a href="/sponsors" className="rounded-xl border border-blue-600/40 bg-blue-600/10 px-4 py-2 hover:bg-blue-600/20 text-blue-300">Sponsor the team</a>
-                <a href="/contact" className="rounded-xl border border-white/10 px-4 py-2 hover:bg-white/5">Contact us</a>
+                <a href="/sponsors" className="rounded-xl border border-blue-600/40 bg-blue-600/10 px-4 py-2 hover:bg-blue-600/20 text-blue-300">
+                  Sponsor the team
+                </a>
+                <a href="/contact" className="rounded-xl border border-white/10 px-4 py-2 hover:bg-white/5">
+                  Contact us
+                </a>
               </div>
             </div>
+
+            {/* Hero image using your file in public/images/robots/apocrobot.webp */}
             <motion.div
-              className="flex-1 w-full h-56 md:h-72 rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-black/60"
+              className="flex-1"
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="w-full h-full grid place-items-center text-zinc-500">Team photo / robot image coming soon</div>
+              <img
+                src="/images/robots/apocrobot.webp"
+                alt="Iron Lions robot — APOC"
+                className="w-full h-56 md:h-72 rounded-2xl border border-white/10 object-contain bg-black/40"
+                width={1200}
+                height={800}
+                loading="eager"
+              />
             </motion.div>
           </div>
         </div>
