@@ -75,14 +75,16 @@ export default function Resources() {
       <Section kicker="Toolkit" title={<span>Hardware</span>}>
         <div className="grid md:grid-cols-2 gap-6">
           <HardwareItem
-            title="Outtake Assembly (APOC)"
+            title="Coaxial Four Bar Outtake (APOC)"
             image={`${PUB}images/resources/outtakerender.webp`}
             alt="APOC Intake Claw"
             downloadHref={`${PUB}images/resources/Outtake Revised.step`}
             downloadName="outtake24089.step"
             description={
               <>
-                Designed for low mass and high stiffness to minimise rebound.
+                3D-printed claw moulded to sample geometry for consistent vision
+                pickups and secure transfer. Tuned for low mass and fast actuation.
+                Includes mounting pattern for our intake slide carriage.
               </>
             }
           />
