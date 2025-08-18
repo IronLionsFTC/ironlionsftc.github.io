@@ -24,6 +24,7 @@ export default function Footer() {
           <div className="text-sm uppercase tracking-widest text-zinc-400">Links</div>
           <ul className="mt-3 space-y-2 text-sm">
             <li><a className="hover:text-blue-400" href="/about">About</a></li>
+            <li><a className="hover:text-blue-400" href="/robots">Robots</a></li>{/* added */}
             <li><a className="hover:text-blue-400" href="/achievements">Achievements</a></li>
             <li><a className="hover:text-blue-400" href="/outreach">Outreach</a></li>
             <li><a className="hover:text-blue-400" href="/sponsors">Sponsors</a></li>
