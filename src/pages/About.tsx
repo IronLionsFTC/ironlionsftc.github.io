@@ -4,14 +4,80 @@ import { motion } from "framer-motion";
 import Slideshow from "@/components/Slideshow";
 import * as React from "react";
 
-/* --------- Local timeline component --------- */
+/* ---------------- Timeline + Countdown ---------------- */
+
 type SeasonEvent = {
   title: string;
   displayDate: string; // e.g. "6 Sep 2025" or "15–16 Nov 2025"
-  isoStart: string;    // e.g. "2025-09-06" (used for sort)
+  isoStart: string;    // e.g. "2025-09-06" (used for countdown/sort)
   isoEnd?: string;
   description?: string;
 };
+
+function useCountdown(isoStart: string) {
+  const get = React.useCallback(() => {
+    const start = new Date(`${isoStart}T00:00:00`);
+    const now = new Date();
+    let diff = start.getTime() - now.getTime();
+    const done = diff <= 0;
+    if (done) return { days: 0, hours: 0, done: true };
+
+    const dayMs = 24 * 60 * 60 * 1000;
+    const hourMs = 60 * 60 * 1000;
+
+    const days = Math.floor(diff / dayMs);
+    diff -= days * dayMs;
+    const hours = Math.floor(diff / hourMs);
+
+    return { days, hours, done: false };
+  }, [isoStart]);
+
+  const [state, setState] = React.useState(get);
+
+  React.useEffect(() => {
+    setState(get()); // initial on mount (avoid SSR mismatch)
+    const id = setInterval(() => setState(get()), 60 * 1000); // update every minute
+    return () => clearInterval(id);
+  }, [get]);
+
+  return state;
+}
+
+function CountdownBadge({ isoStart }: { isoStart: string }) {
+  const { days, hours, done } = useCountdown(isoStart);
+
+  return (
+    <div className="shrink-0 md:ml-auto ml-2 self-stretch flex items-center">
+      <div
+        className="
+          min-w-[148px] h-[76px]
+          rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm shadow
+          px-4
+          flex flex-col items-center justify-center text-center
+        "
+      >
+        {done ? (
+          <div className="text-[10px] md:text-xs uppercase tracking-widest text-zinc-500 font-medium">
+            Completed
+          </div>
+        ) : (
+          <>
+            <div
+              className="font-display text-2xl md:text-3xl leading-none text-white"
+              suppressHydrationWarning
+            >
+              {days}d&nbsp;{hours}h
+            </div>
+            {/* Match “ALLIANCE PARTNER” style: uppercase, spaced, subtle gray */}
+            <div className="mt-2 text-[10px] md:text-xs uppercase tracking-widest text-zinc-400/90 font-medium">
+              Until Start
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
 
 function SeasonTimeline({
   events,
@@ -20,7 +86,7 @@ function SeasonTimeline({
   events: SeasonEvent[];
   className?: string;
 }) {
-  // chronological: most recent (first in season) → latest (last)
+  // chronological: most recent first → latest last
   const items = React.useMemo(
     () =>
       [...events].sort(
@@ -35,6 +101,9 @@ function SeasonTimeline({
         <h3 className="font-display tracking-tight leading-tight text-2xl md:text-3xl text-white">
           DECODE Season Timeline
         </h3>
+        <p className="text-sm text-zinc-400">
+          Ordered from most recent event first to the latest.
+        </p>
       </div>
 
       <div className="relative">
@@ -46,18 +115,25 @@ function SeasonTimeline({
               {/* node */}
               <span className="absolute left-3.5 sm:left-4 top-4 inline-flex h-3 w-3 rounded-full bg-blue-400 ring-4 ring-blue-400/25" />
               <div className="card p-4 md:p-5">
-                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                  <time className="font-display text-sm md:text-base font-medium text-blue-300 leading-none">
-                    {ev.displayDate}
-                  </time>
-                  <span className="text-sm text-zinc-500">•</span>
-                  <h4 className="font-display text-lg md:text-xl leading-snug text-white">
-                    {ev.title}
-                  </h4>
+                <div className="flex items-start gap-4">
+                  <div className="min-w-0">
+                    <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                      <time className="font-display text-base font-medium text-blue-300 leading-none">
+                        {ev.displayDate}
+                      </time>
+                      <span className="text-sm text-zinc-500">•</span>
+                      <h4 className="font-display text-xl leading-snug text-white">
+                        {ev.title}
+                      </h4>
+                    </div>
+                    {ev.description ? (
+                      <p className="mt-2 text-sm text-zinc-400">{ev.description}</p>
+                    ) : null}
+                  </div>
+
+                  {/* right-side countdown */}
+                  <CountdownBadge isoStart={ev.isoStart} />
                 </div>
-                {ev.description ? (
-                  <p className="mt-2 text-sm text-zinc-400">{ev.description}</p>
-                ) : null}
               </div>
             </li>
           ))}
@@ -67,7 +143,7 @@ function SeasonTimeline({
   );
 }
 
-/* --------- Page --------- */
+/* ---------------- Page ---------------- */
 
 const SEASON_EVENTS_2025: SeasonEvent[] = [
   {
