@@ -175,10 +175,11 @@ export default function Robots() {
                 <span className="text-blue-300">Regression Application</span>
               </p>
 
+              {/* Smaller + centered image */}
               <img
                 src={`${PUB}images/robots/pipelines.webp`}
                 alt="Pipeline visualisation"
-                className="mt-5 rounded-xl border border-white/10"
+                className="mt-5 mx-auto block w-full max-w-2xl rounded-xl border border-white/10"
               />
             </div>
 
@@ -198,6 +199,7 @@ export default function Robots() {
           </div>
 
           <div className="space-y-6">
+            {/* Right-column card 1 */}
             <div className="card p-5 md:p-6">
               <div className="text-[11px] uppercase tracking-widest text-zinc-400/90 font-medium">Application</div>
               <div className="font-display text-xl md:text-2xl text-white mt-1">Autonomous Submersible Intake</div>
@@ -215,6 +217,39 @@ export default function Robots() {
                 className="mt-4 rounded-xl border border-white/10"
               />
               <div className="mt-3 text-sm text-blue-300">Outperforms a human driver with 100+ hours of experience</div>
+            </div>
+
+            {/* Right-column card 2 — PID with two text blocks side-by-side and image below */}
+            <div className="card p-5 md:p-6">
+              <div className="font-display text-xl md:text-2xl text-white">PID</div>
+
+              {/* two text blocks across the top */}
+              <div className="mt-3 grid md:grid-cols-2 gap-6">
+                <div className="text-zinc-300 text-[15px] leading-relaxed">
+                  <div className="font-semibold text-blue-300 mb-1">What is it?</div>
+                  <p>
+                    PID (proportional, integral, derivative) controllers provide advanced PWM power
+                    control to motors based on a target and current position
+                  </p>
+                </div>
+
+                <div className="text-zinc-300 text-[15px] leading-relaxed">
+                  <div className="font-semibold text-blue-300 mb-1">Where was it used?</div>
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li>Yaw correction</li>
+                    <li>Outtake profiling</li>
+                    <li>Slide movement</li>
+                    <li>Computer Vision</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* diagram below, centered */}
+              <img
+                src={`${PUB}images/robots/pidflow.webp`}
+                alt="PID controller diagram"
+                className="mt-5 w-full max-w-md mx-auto rounded-xl border border-white/10"
+              />
             </div>
           </div>
         </div>
