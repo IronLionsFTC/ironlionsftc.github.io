@@ -212,7 +212,7 @@ export default function About() {
                   "/images/team/apoc4.webp",
                   "/images/team/apoc5.webp",
                 ]}
-                intervalMs={3000}
+                intervalMs={5000}
               />
             </motion.div>
           </div>
