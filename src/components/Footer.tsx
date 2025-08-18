@@ -1,11 +1,14 @@
+// src/components/Footer.tsx
 import { SOCIALS } from "@/data/site";
 import { Github, Instagram, Youtube } from "lucide-react";
+import { DiscordIcon } from "./icons/Discord";
 import Logo from "./Logo";
 
 const ICONS: Record<string, JSX.Element> = {
   github: <Github />,
   instagram: <Instagram />,
-  youtube: <Youtube />
+  youtube: <Youtube />,
+  discord: <DiscordIcon className="h-5 w-5" />, // local SVG
 };
 
 export default function Footer() {
@@ -24,18 +27,18 @@ export default function Footer() {
           <div className="text-sm uppercase tracking-widest text-zinc-400">Links</div>
           <ul className="mt-3 space-y-2 text-sm">
             <li><a className="hover:text-blue-400" href="/about">About</a></li>
-            <li><a className="hover:text-blue-400" href="/robots">Robots</a></li>{/* added */}
             <li><a className="hover:text-blue-400" href="/achievements">Achievements</a></li>
             <li><a className="hover:text-blue-400" href="/outreach">Outreach</a></li>
             <li><a className="hover:text-blue-400" href="/sponsors">Sponsors</a></li>
             <li><a className="hover:text-blue-400" href="/contact">Contact</a></li>
+            <li><a className="hover:text-blue-400" href="/robots">Robots</a></li>
           </ul>
         </div>
 
         <div>
           <div className="text-sm uppercase tracking-widest text-zinc-400">Social</div>
           <div className="mt-3 flex gap-3">
-            {SOCIALS.map(s => (
+            {SOCIALS.map((s) => (
               <a
                 key={s.label}
                 href={s.href}
@@ -44,7 +47,7 @@ export default function Footer() {
                 rel="noreferrer"
                 className="p-2 rounded-lg border border-white/10 hover:border-blue-600/40 hover:text-blue-300 transition tilt"
               >
-                {ICONS[s.icon]}
+                {ICONS[s.icon] ?? <span className="text-sm">{s.label}</span>}
               </a>
             ))}
           </div>
