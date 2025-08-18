@@ -1,10 +1,10 @@
+// src/pages/About.tsx
 import Section from "@/components/Section";
 import { TEAM } from "@/data/site";
 import { motion } from "framer-motion";
-import Slideshow from "@/components/Slideshow";
 import * as React from "react";
 
-/* ---------------- Timeline + Countdown ---------------- */
+/* ---------------- Timeline + Countdown (kept the same) ---------------- */
 
 type SeasonEvent = {
   title: string;
@@ -68,7 +68,6 @@ function CountdownBadge({ isoStart }: { isoStart: string }) {
             >
               {days}d&nbsp;{hours}h
             </div>
-            {/* Match “ALLIANCE PARTNER” style: uppercase, spaced, subtle gray */}
             <div className="mt-2 text-[10px] md:text-xs uppercase tracking-widest text-zinc-400/90 font-medium">
               Until Start
             </div>
@@ -101,6 +100,9 @@ function SeasonTimeline({
         <h3 className="font-display tracking-tight leading-tight text-2xl md:text-3xl text-white">
           DECODE Season Timeline
         </h3>
+        <p className="text-sm text-zinc-400">
+          Ordered from most recent event first to the latest.
+        </p>
       </div>
 
       <div className="relative">
@@ -168,6 +170,7 @@ const SEASON_EVENTS_2025: SeasonEvent[] = [
 export default function About() {
   return (
     <>
+      {/* HERO — slideshow removed; static image kept */}
       <section className="mx-auto max-w-7xl px-4 pt-16">
         <div className="card p-8 md:p-12">
           <div className="flex flex-col md:flex-row gap-8 items-center">
@@ -181,7 +184,13 @@ export default function About() {
                 to engineer competitive robots, grow STEM skills, and support our community
                 through outreach and mentoring.
               </p>
-              <div className="mt-6 flex gap-3">
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a
+                  href="/robots"
+                  className="rounded-xl border border-blue-600/40 bg-blue-600/10 px-4 py-2 hover:bg-blue-600/20 text-blue-300"
+                >
+                  Meet Valor
+                </a>
                 <a
                   href="/sponsors"
                   className="rounded-xl border border-blue-600/40 bg-blue-600/10 px-4 py-2 hover:bg-blue-600/20 text-blue-300"
@@ -203,16 +212,10 @@ export default function About() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4 }}
             >
-              <Slideshow
-                images={[
-                  "/images/robots/apocrobot.webp",
-                  "/images/robots/apoc1.webp",
-                  "/images/robots/apoc2.webp",
-                  "/images/robots/apoc3.webp",
-                  "/images/team/apoc4.webp",
-                  "/images/team/apoc5.webp",
-                ]}
-                intervalMs={5000}
+              <img
+                src="/images/robots/apocrobot.webp"
+                alt="Iron Lions robot APOC"
+                className="rounded-2xl border border-white/10 shadow-xl w-full h-auto object-cover"
               />
             </motion.div>
           </div>
