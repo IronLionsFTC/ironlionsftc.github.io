@@ -32,6 +32,7 @@ export default function Footer() {
             <li><a className="hover:text-blue-400" href="/sponsors">Sponsors</a></li>
             <li><a className="hover:text-blue-400" href="/contact">Contact</a></li>
             <li><a className="hover:text-blue-400" href="/robots">Robots</a></li>
+            <li><a className="hover:text-blue-400" href="/resources">Resources</a></li> {/* NEW */}
           </ul>
         </div>
 
