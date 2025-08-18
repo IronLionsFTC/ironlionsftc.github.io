@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 
 const links = [
   { to: "/about", label: "About" },
+  { to: "/robots", label: "Robots" }, // <-- added
   { to: "/achievements", label: "Achievements" },
   { to: "/outreach", label: "Outreach" },
   { to: "/sponsors", label: "Sponsors" },
@@ -49,7 +50,9 @@ export default function NavBar() {
                 key={l.to}
                 to={l.to}
                 onClick={() => setOpen(false)}
-                className="py-2 text-zinc-200 hover:text-blue-400">
+                className={({isActive}) =>
+                  `py-2 transition ${isActive ? "text-blue-400" : "text-zinc-200 hover:text-blue-400"}`
+                }>
                 {l.label}
               </NavLink>
             ))}
