@@ -66,7 +66,7 @@ export default function Resources() {
           <p className="mt-3 text-zinc-300">
             A curated set of links, docs, and references we use across the team.
             Split into <span className="text-blue-300">Hardware</span> and{" "}
-            <span className="text-blue-300">Software</span>. Content will evolve across the season.
+            <span className="text-blue-300">Software</span>.
           </p>
         </div>
       </section>
@@ -75,30 +75,28 @@ export default function Resources() {
       <Section kicker="Toolkit" title={<span>Hardware</span>}>
         <div className="grid md:grid-cols-2 gap-6">
           <HardwareItem
-            title="Intake Claw (APOC)"
-            image={`${PUB}images/resources/intake-claw.webp`}
+            title="Outtake Assembly (APOC)"
+            image={`${PUB}images/resources/outtakerender.webp`}
             alt="APOC Intake Claw"
-            downloadHref={`${PUB}downloads/intake-claw.step`}
-            downloadName="intake-claw.step"
+            downloadHref={`${PUB}images/resources/Outtake Revised.step`}
+            downloadName="outtake24089.step"
             description={
               <>
-                3D-printed claw moulded to sample geometry for consistent vision
-                pickups and secure transfer. Tuned for low mass and fast actuation.
-                Includes mounting pattern for our intake slide carriage.
+                Designed for low mass and high stiffness to minimise rebound.
               </>
             }
           />
 
           <HardwareItem
-            title="Outtake Claw (APOC)"
+            title="Intake & Outtake Claw (APOC)"
             image={`${PUB}images/resources/apocouttakeclaw.webp`}
-            alt="APOC Outtake Claw"
+            alt="APOC Claw"
             downloadHref={`${PUB}images/resources/APOC Outtake Claw`}
-            downloadName="outtake-claw.step"
+            downloadName="claw.step"
             description={
               <>
                 Lightweight, sample-profiled outtake end-effector designed for reliable placement
-                and minimal cycle time. Matches APOC outtake linkage clearances and centerline.
+                and minimal cycle time. Tuned for low mass and fast actuation.
               </>
             }
           />
