@@ -3,6 +3,12 @@ import * as React from "react";
 import Section from "@/components/Section";
 import { motion } from "framer-motion";
 
+/**
+ * Use Vite's base URL so images work both locally and on GitHub Pages/custom domains.
+ * Everything in /public is served from `${import.meta.env.BASE_URL}` at runtime.
+ */
+const PUB = import.meta.env.BASE_URL;
+
 /* ---------- small local UI ---------- */
 
 function Stat({ label, value }: { label: string; value: string | number }) {
@@ -37,12 +43,8 @@ function Callout({
   return (
     <div className="card p-5 md:p-6 ring-4 ring-blue-400/20">
       <div>
-        <div className="font-display text-xl md:text-2xl text-white">
-          {title}
-        </div>
-        <div className="mt-2 text-zinc-300 text-[15px] leading-relaxed">
-          {children}
-        </div>
+        <div className="font-display text-xl md:text-2xl text-white">{title}</div>
+        <div className="mt-2 text-zinc-300 text-[15px] leading-relaxed">{children}</div>
       </div>
     </div>
   );
@@ -93,7 +95,7 @@ export default function Robots() {
               transition={{ duration: 0.4 }}
             >
               <img
-                src="/images/robots/valorv3render.webp"
+                src={`${PUB}images/robots/valorv3render.webp`}
                 alt="Valor v3 render"
                 className="rounded-2xl border border-white/10 shadow-xl"
               />
@@ -107,7 +109,7 @@ export default function Robots() {
         <div className="grid lg:grid-cols-2 gap-6">
           <div className="card p-5 md:p-6">
             <img
-              src="/images/robots/robotsize.webp"
+              src={`${PUB}images/robots/robotsize.webp`}
               alt="Valor v3 dimensions and layout"
               className="rounded-xl border border-white/10"
             />
@@ -127,20 +129,15 @@ export default function Robots() {
             <Callout title="APOC Subsystem Redesign">
               Nationals upgrade focused on{" "}
               <span className="text-blue-300 font-medium">Computer Vision</span>
-              . Limelight moved to the main chassis and the intake was completely
-              redesigned with strung slides, more than doubling extension speed
-              and tripling retraction rate. The new mechanism supports linear
-              motion profiling and a tighter CV pickup envelope
+              . Limelight moved to the main chassis and the intake was completely redesigned with
+              strung slides, more than doubling extension speed and tripling retraction rate. The new
+              mechanism supports linear motion profiling and a tighter CV pickup envelope
             </Callout>
 
             <Callout title="Redundancy &amp; Control">
               <ul className="list-disc pl-5 mt-1 space-y-1">
-                <li>
-                  Integrated colour sensor feeds a driver LED panel in real time
-                </li>
-                <li>
-                  Driver is prevented from grabbing if colour or sample is invalid
-                </li>
+                <li>Integrated colour sensor feeds a driver LED panel in real time</li>
+                <li>Driver is prevented from grabbing if colour or sample is invalid</li>
                 <li>Sensor verifies all Computer Vision pickups</li>
               </ul>
             </Callout>
@@ -148,16 +145,13 @@ export default function Robots() {
             <Callout title="Outtake: Results">
               <ul className="list-disc pl-5 mt-1 space-y-1">
                 <li>
-                  Extension speed:{" "}
-                  <span className="text-blue-300 font-semibold">3× faster</span> (1.5s → 0.5s)
+                  Extension speed: <span className="text-blue-300 font-semibold">3× faster</span> (1.5s → 0.5s)
                 </li>
                 <li>
-                  Transfer accuracy:{" "}
-                  <span className="text-blue-300 font-semibold">95% → 99%+</span>
+                  Transfer accuracy: <span className="text-blue-300 font-semibold">95% → 99%+</span>
                 </li>
                 <li>
-                  Outtake arm pivot:{" "}
-                  <span className="text-blue-300 font-semibold">3× faster</span> (1s → 0.3s)
+                  Outtake arm pivot: <span className="text-blue-300 font-semibold">3× faster</span> (1s → 0.3s)
                 </li>
                 <li>Enables 8-sample autonomous with minimal power draw</li>
               </ul>
@@ -171,39 +165,32 @@ export default function Robots() {
         <div className="grid lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2 space-y-6">
             <div className="card p-5 md:p-6 ring-4 ring-blue-400/20">
-              <div className="font-display text-2xl md:text-3xl text-white">
-                Vision Pipeline
-              </div>
+              <div className="font-display text-2xl md:text-3xl text-white">Vision Pipeline</div>
               <p className="mt-2 text-zinc-300">
-                Described by many teams as the{" "}
-                <span className="font-semibold text-blue-300">best in the world</span>
+                Described by many teams as the <span className="font-semibold text-blue-300">best in the world</span>
               </p>
               <p className="mt-3 text-zinc-200">
-                <span className="text-blue-300">Colour Profiling</span> → Canny Edge Detection
-                → Erosion → Dilation →{" "}
-                <span className="text-blue-300">Watershed Algorithm</span> → Segmentation →
-                Contouring → Filtering →{" "}
+                <span className="text-blue-300">Colour Profiling</span> → Canny Edge Detection → Erosion → Dilation →{" "}
+                <span className="text-blue-300">Watershed Algorithm</span> → Segmentation → Contouring → Filtering →{" "}
                 <span className="text-blue-300">Regression Application</span>
               </p>
 
               <img
-                src="/images/robots/pipelines.webp"
+                src={`${PUB}images/robots/pipelines.webp`}
                 alt="Pipeline visualisation"
                 className="mt-5 rounded-xl border border-white/10"
               />
             </div>
 
             <div className="card p-5 md:p-6">
-              <div className="font-display text-xl md:text-2xl text-white">
-                Regression Application
-              </div>
+              <div className="font-display text-xl md:text-2xl text-white">Regression Application</div>
               <p className="mt-2 text-zinc-300">
-                Multiple mathematical regressions built in Desmos align hardware motion with
-                vision outputs for precise translational and rotational sample alignment — a
-                unique and highly effective mapping from vision to actuation
+                Multiple mathematical regressions built in Desmos align hardware motion with vision outputs for precise
+                translational and rotational sample alignment — a unique and highly effective mapping from vision to
+                actuation
               </p>
               <img
-                src="/images/robots/regressionplot.webp"
+                src={`${PUB}images/robots/regressionplot.webp`}
                 alt="Regression plots"
                 className="mt-4 rounded-xl border border-white/10"
               />
@@ -212,29 +199,22 @@ export default function Robots() {
 
           <div className="space-y-6">
             <div className="card p-5 md:p-6">
-              <div className="text-[11px] uppercase tracking-widest text-zinc-400/90 font-medium">
-                Application
-              </div>
-              <div className="font-display text-xl md:text-2xl text-white mt-1">
-                Autonomous Submersible Intake
-              </div>
+              <div className="text-[11px] uppercase tracking-widest text-zinc-400/90 font-medium">Application</div>
+              <div className="font-display text-xl md:text-2xl text-white mt-1">Autonomous Submersible Intake</div>
               <ul className="mt-3 space-y-2 text-zinc-300 list-disc pl-5">
                 <li>Scan submersible for sample positions</li>
                 <li>
-                  Use <span className="font-medium">inverse kinematics</span> to compute lateral
-                  motion and slide lengths
+                  Use <span className="font-medium">inverse kinematics</span> to compute lateral motion and slide lengths
                 </li>
                 <li>Perform motion; confirm presence and colour via integrated sensor</li>
                 <li>On failure, re-scan and repeat ensuring success every time</li>
               </ul>
               <img
-                src="/images/robots/autograb.webp"
+                src={`${PUB}images/robots/autograb.webp`}
                 alt="Autonomous intake sequence"
                 className="mt-4 rounded-xl border border-white/10"
               />
-              <div className="mt-3 text-sm text-blue-300">
-                Outperforms a human driver with 100+ hours of experience
-              </div>
+              <div className="mt-3 text-sm text-blue-300">Outperforms a human driver with 100+ hours of experience</div>
             </div>
           </div>
         </div>
@@ -284,10 +264,10 @@ export default function Robots() {
       <Section kicker="Build" title={<span>Iterations</span>}>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
-            { label: "Pre Regionals", src: "/images/robots/preregionals.webp" },
-            { label: "Regionals", src: "/images/robots/regionals.webp" },
-            { label: "Nationals", src: "/images/robots/nationals.webp" },
-            { label: "APOC", src: "/images/robots/apoclenght.webp" },
+            { label: "Pre Regionals", src: `${PUB}images/robots/preregionals.webp` },
+            { label: "Regionals", src: `${PUB}images/robots/regionals.webp` },
+            { label: "Nationals", src: `${PUB}images/robots/nationals.webp` },
+            { label: "APOC", src: `${PUB}images/robots/apoclenght.webp` },
           ].map((g) => (
             <figure
               key={g.label}
