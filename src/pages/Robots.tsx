@@ -93,7 +93,7 @@ export default function Robots() {
               transition={{ duration: 0.4 }}
             >
               <img
-                src="public/images/robots/valorv3render.webp"
+                src="/images/robots/valorv3render.webp"
                 alt="Valor v3 render"
                 className="rounded-2xl border border-white/10 shadow-xl"
               />
@@ -107,7 +107,7 @@ export default function Robots() {
         <div className="grid lg:grid-cols-2 gap-6">
           <div className="card p-5 md:p-6">
             <img
-              src="public/images/robots/robotsize.webp"
+              src="/images/robots/robotsize.webp"
               alt="Valor v3 dimensions and layout"
               className="rounded-xl border border-white/10"
             />
@@ -187,7 +187,7 @@ export default function Robots() {
               </p>
 
               <img
-                src="public/images/robots/pipelines.webp"
+                src="/images/robots/pipelines.webp"
                 alt="Pipeline visualisation"
                 className="mt-5 rounded-xl border border-white/10"
               />
@@ -203,7 +203,7 @@ export default function Robots() {
                 unique and highly effective mapping from vision to actuation
               </p>
               <img
-                src="public/images/robots/regressionplot.webp"
+                src="/images/robots/regressionplot.webp"
                 alt="Regression plots"
                 className="mt-4 rounded-xl border border-white/10"
               />
@@ -228,7 +228,7 @@ export default function Robots() {
                 <li>On failure, re-scan and repeat ensuring success every time</li>
               </ul>
               <img
-                src="public/images/robots/autograb.webp"
+                src="/images/robots/autograb.webp"
                 alt="Autonomous intake sequence"
                 className="mt-4 rounded-xl border border-white/10"
               />
@@ -284,10 +284,10 @@ export default function Robots() {
       <Section kicker="Build" title={<span>Iterations</span>}>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
-            { label: "Pre Regionals", src: "public/images/robots/preregionals.webp" },
-            { label: "Regionals", src: "public/images/robots/regionals.webp" },
-            { label: "Nationals", src: "public/images/robots/nationals.webp" },
-            { label: "APOC", src: "public/images/robots/apoclenght.webp" },
+            { label: "Pre Regionals", src: "/images/robots/preregionals.webp" },
+            { label: "Regionals", src: "/images/robots/regionals.webp" },
+            { label: "Nationals", src: "/images/robots/nationals.webp" },
+            { label: "APOC", src: "/images/robots/apoclenght.webp" },
           ].map((g) => (
             <figure
               key={g.label}
