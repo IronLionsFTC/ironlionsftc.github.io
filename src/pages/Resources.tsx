@@ -75,7 +75,7 @@ export default function Resources() {
       <Section kicker="Toolkit" title={<span>Hardware</span>}>
         <div className="grid md:grid-cols-2 gap-6">
           <HardwareItem
-            title="Coaxial Four Bar Outtake (APOC)"
+            title="Virtual Four Bar Outtake (APOC)"
             image={`${PUB}images/resources/outtakerender.webp`}
             alt="APOC Intake Claw"
             downloadHref={`${PUB}images/resources/Outtake Revised.step`}
