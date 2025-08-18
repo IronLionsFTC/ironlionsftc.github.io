@@ -101,9 +101,6 @@ function SeasonTimeline({
         <h3 className="font-display tracking-tight leading-tight text-2xl md:text-3xl text-white">
           DECODE Season Timeline
         </h3>
-        <p className="text-sm text-zinc-400">
-          Ordered from most recent event first to the latest.
-        </p>
       </div>
 
       <div className="relative">
