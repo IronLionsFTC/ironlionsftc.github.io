@@ -73,7 +73,7 @@ export default function Robots() {
                 <Stat label="Cycle (Specimens)" value="5–8 s" />
                 <Stat label="Autonomous Modes" value="2" />
                 <Stat label="Max Auto Points" value="128" />
-                <Stat label="Motors" value="7" />
+                <Stat label="Motors" value="8" />
                 <Stat label="Servos" value="9" />
               </div>
 
