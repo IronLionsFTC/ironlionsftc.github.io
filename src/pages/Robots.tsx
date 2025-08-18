@@ -257,6 +257,16 @@ export default function Robots() {
               <li>Clamping prevents incorrect motor power</li>
             </ul>
           </Callout>
+
+          {/* NEW: fills the empty slot next to/with PID in the grid */}
+          <Callout title="Pedro Pathing">
+            <ul className="list-disc pl-5 mt-1 space-y-1">
+              <li>
+                Bezier curves are highly energy-efficient and time-efficient but introduce a
+                significant learning curve that we overcame
+              </li>
+            </ul>
+          </Callout>
         </div>
       </Section>
 
