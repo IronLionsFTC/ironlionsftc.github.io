@@ -1,7 +1,7 @@
 // src/pages/Resources.tsx
 import * as React from "react";
 import Section from "@/components/Section";
-import { ArrowDownToLine } from "lucide-react";
+import { ArrowDownToLine, ArrowUpRight } from "lucide-react";
 
 const PUB = import.meta.env.BASE_URL;
 
@@ -31,11 +31,7 @@ function HardwareItem(props: {
 
       {/* Image */}
       <div className="mt-4 rounded-xl border border-white/10 overflow-hidden bg-white/5">
-        <img
-          src={image}
-          alt={alt}
-          className="w-full h-56 md:h-64 object-cover"
-        />
+        <img src={image} alt={alt} className="w-full h-56 md:h-64 object-cover" />
       </div>
 
       {/* Download button */}
@@ -52,6 +48,42 @@ function HardwareItem(props: {
 
       {/* Blurb */}
       <p className="mt-3 text-zinc-300 text-sm leading-relaxed">{description}</p>
+    </div>
+  );
+}
+
+function RepoCard({
+  title,
+  image,
+  href,
+  blurb,
+}: {
+  title: string;
+  image: string;
+  href: string;
+  blurb: React.ReactNode;
+}) {
+  return (
+    <div className="card p-6 md:p-8">
+      <h3 className="font-display text-xl md:text-2xl">{title}</h3>
+
+      <div className="mt-4 rounded-xl border border-white/10 overflow-hidden bg-white/5">
+        <img src={image} alt={title} className="w-full h-56 md:h-64 object-cover" />
+      </div>
+
+      <div className="mt-4">
+        <a
+          href={href}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-2 rounded-xl border border-blue-600/40 bg-blue-600/10 px-3 py-1.5 text-sm text-blue-300 hover:bg-blue-600/20 transition"
+        >
+          <ArrowUpRight className="h-4 w-4" />
+          View Repository
+        </a>
+      </div>
+
+      <p className="mt-3 text-zinc-300 text-sm leading-relaxed">{blurb}</p>
     </div>
   );
 }
@@ -75,16 +107,16 @@ export default function Resources() {
       <Section kicker="Toolkit" title={<span>Hardware</span>}>
         <div className="grid md:grid-cols-2 gap-6">
           <HardwareItem
-            title="Virtual Four Bar Outtake (APOC)"
+            title="Co-Axial Four Bar Outtake (APOC)"
             image={`${PUB}images/resources/outtakerender.webp`}
             alt="APOC Intake Claw"
             downloadHref={`${PUB}images/resources/Outtake Revised.step`}
             downloadName="outtake24089.step"
             description={
               <>
-                3D-printed claw moulded to sample geometry for consistent vision
-                pickups and secure transfer. Tuned for low mass and fast actuation.
-                Includes mounting pattern for our intake slide carriage.
+                3D-printed claw moulded to sample geometry for consistent vision pickups and secure
+                transfer. Tuned for low mass and fast actuation. Includes mounting pattern for our
+                intake slide carriage.
               </>
             }
           />
@@ -108,22 +140,18 @@ export default function Resources() {
       {/* SOFTWARE */}
       <Section kicker="Toolkit" title={<span>Software</span>}>
         <div className="grid md:grid-cols-2 gap-6">
-          <Card title="Control &amp; Autonomy">
-            <ul className="list-disc pl-5 space-y-2">
-              <li>Computer Vision pipeline overview &amp; tuning notes</li>
-              <li>PID profiles for slides/outtake (split in/out with clamping)</li>
-              <li>Finite State Machine patterns for complex actions</li>
-              <li>Pathing (Pedro) quick-start &amp; Bezier concepts</li>
-            </ul>
-          </Card>
-          <Card title="Dev Environment">
-            <ul className="list-disc pl-5 space-y-2">
-              <li>Project structure and code style conventions</li>
-              <li>Logging &amp; telemetry checklist</li>
-              <li>Simulator/testing workflow</li>
-              <li>Release notes template &amp; driver station checklist</li>
-            </ul>
-          </Card>
+          <RepoCard
+            title="DECODE Code"
+            image={`${PUB}images/resources/FTC24089-DECODE.webp`}
+            href="https://github.com/IronLionsFTC/FTC24089-DECODE"
+            blurb={
+              <>
+                Season codebase for FTC 24089’s DECODE robot. Includes autonomous routines, Pedro
+                pathing integration, Computer Vision modules, and refined PID profiles used in
+                competition.
+              </>
+            }
+          />
         </div>
       </Section>
     </>
