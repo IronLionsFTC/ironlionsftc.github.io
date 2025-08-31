@@ -42,7 +42,7 @@ function HardwareItem(props: {
           className="inline-flex items-center gap-2 rounded-xl border border-blue-600/40 bg-blue-600/10 px-3 py-1.5 text-sm text-blue-300 hover:bg-blue-600/20 transition"
         >
           <ArrowDownToLine className="h-4 w-4" />
-          Download
+          {downloadName ? downloadName : "Download"}
         </a>
       </div>
 
@@ -97,8 +97,9 @@ export default function Resources() {
           <h1 className="font-display text-4xl md:text-5xl">Resources</h1>
           <p className="mt-3 text-zinc-300">
             A curated set of links, docs, and references we use across the team.
-            Split into <span className="text-blue-300">Hardware</span> and{" "}
-            <span className="text-blue-300">Software</span>.
+            Split into <span className="text-blue-300">Hardware</span>,{" "}
+            <span className="text-blue-300">Software</span>, and{" "}
+            <span className="text-blue-300">FLL</span>.
           </p>
         </div>
       </section>
@@ -154,6 +155,27 @@ export default function Resources() {
           />
         </div>
       </Section>
+
+      {/* FIRST LEGO LEAGUE */}
+      <Section kicker="Toolkit" title={<span>First Lego League</span>}>
+        <div className="grid md:grid-cols-2 gap-6">
+          <HardwareItem
+            title="Robot Game Rulebook Breakdown"
+            image={`${PUB}images/resources/FLLBanner.webp`}
+            alt="FLL Rulebook"
+            downloadHref={`${PUB}images/resources/fllrulebookeasyread.pdf`}
+            downloadName="Robot Game Rulebook Breakdown"
+            description={
+              <>
+                Simplified and annotated breakdown of the FLL Robot Game rules. Helps new and
+                experienced teams quickly understand key gameplay elements, scoring, and strategy
+                considerations.
+              </>
+            }
+          />
+        </div>
+      </Section>
     </>
   );
 }
+
