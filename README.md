@@ -1,5 +1,3 @@
-# Made and Managed by [Taha Salman](https://github.com/ParadoxIsCoding)
-
 # Iron Lions FTC — Website
 
 A fast, modern, and fully responsive website for **FTC Team 24089 — Iron Lions**.
