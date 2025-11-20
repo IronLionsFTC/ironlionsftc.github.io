@@ -15,10 +15,10 @@ type AwardItem = {
 const AWARDS: AwardItem[] = [
   {
     year: "2025",
-    season: "INTO THE DEEP℠",
-    event: "DECODE",
+    season: "DECODE℠",
+    event: "Brisbane South Regionals",
     results: ["Inspire Award — 2nd", "Winning Alliance — Captain"],
-    partner: "Brisbane South Regionals"
+    partner: "19450 Splitbot"
   },
   {
     year: "2025",
