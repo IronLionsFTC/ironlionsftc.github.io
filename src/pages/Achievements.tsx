@@ -16,6 +16,13 @@ const AWARDS: AwardItem[] = [
   {
     year: "2025",
     season: "INTO THE DEEP℠",
+    event: "DECODE",
+    results: ["Inspire Award — 2nd", "Winning Alliance — Captain"],
+    partner: "Brisbane South Regionals"
+  },
+  {
+    year: "2025",
+    season: "INTO THE DEEP℠",
     event: "APOC 2025",
     results: ["Inspire Award — 1st", "Winning Alliance — Captain"],
     partner: "28078 Kryptonite",

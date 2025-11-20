@@ -6,7 +6,8 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 
 import About from "@/pages/About";
-import Robots from "@/pages/Robots";
+import Valor from "@/pages/Valor";
+import Mufasa from "@/pages/Mufasa";
 import Achievements from "@/pages/Achievements";
 import Outreach from "@/pages/Outreach";
 import Sponsors from "@/pages/Sponsors";
@@ -25,7 +26,9 @@ export default function App() {
           <Route path="/" element={<Navigate to="/about" replace />} />
 
           <Route path="/about" element={<About />} />
-          <Route path="/robots" element={<Robots />} />
+          <Route path="/robots" element={<Navigate to="/robots/valor" replace />} />
+          <Route path="/robots/valor" element={<Valor />} />
+          <Route path="/robots/mufasa" element={<Mufasa />} />
           <Route path="/achievements" element={<Achievements />} />
           <Route path="/outreach" element={<Outreach />} />
           <Route path="/sponsors" element={<Sponsors />} />

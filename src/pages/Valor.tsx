@@ -52,7 +52,7 @@ function Callout({
 
 /* --------------------------------- PAGE --------------------------------- */
 
-export default function Robots() {
+export default function Valor() {
   return (
     <>
       {/* HERO */}
