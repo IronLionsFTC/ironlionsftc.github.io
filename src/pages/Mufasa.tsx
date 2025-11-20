@@ -36,7 +36,7 @@ function Callout({
     title,
     children,
 }: {
-    title: string;
+    title: React.ReactNode;
     children: React.ReactNode;
 }) {
     // Unified to site-blue theme, removed title dot
@@ -67,16 +67,16 @@ export default function Mufasa() {
 
                             {/* Stats */}
                             <div className="mt-8 grid sm:grid-cols-3 gap-3">
-                                <Stat label="Stat 1" value="Value" />
-                                <Stat label="Stat 2" value="Value" />
-                                <Stat label="Stat 3" value="Value" />
+                                <Stat label="Close Zone Auto" value="15" />
+                                <Stat label="Farzone Auto" value="12" />
+                                <Stat label="Rapid Fire" value="3 in ≤1s" />
                             </div>
 
                             {/* Feature pills */}
                             <div className="mt-6 flex flex-wrap gap-2">
-                                <Pill>Feature 1</Pill>
-                                <Pill>Feature 2</Pill>
-                                <Pill>Feature 3</Pill>
+                                <Pill>Full Metal Build</Pill>
+                                <Pill>Auto Align to Goal</Pill>
+                                <Pill>Custom 3D Printed Shooter and Variable Hood</Pill>
                             </div>
                         </div>
 
@@ -86,9 +86,11 @@ export default function Mufasa() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.4 }}
                         >
-                            <div className="aspect-square rounded-2xl border border-white/10 bg-white/5 flex items-center justify-center text-zinc-500">
-                                Image Placeholder
-                            </div>
+                            <img
+                                src={`${PUB}images/robots/DECODEREGIONALSROBOT.webp`}
+                                alt="Mufasa Robot"
+                                className="aspect-square w-full h-full object-cover rounded-2xl border border-white/10 bg-white/5"
+                            />
                         </motion.div>
                     </div>
                 </div>
@@ -98,22 +100,26 @@ export default function Mufasa() {
             <Section kicker="Overview" title={<span>Details</span>}>
                 <div className="grid lg:grid-cols-2 gap-6">
                     <div className="card p-5 md:p-6">
-                        <div className="aspect-video rounded-xl border border-white/10 bg-white/5 flex items-center justify-center text-zinc-500 mb-4">
-                            Image Placeholder
+                        <div className="aspect-video rounded-xl border border-white/10 bg-white/5 flex items-center justify-center text-zinc-500 mb-4 overflow-hidden">
+                            <img
+                                src={`${PUB}images/robots/DECODEREGIONALSBACK.webp`}
+                                alt="Mufasa Back View"
+                                className="w-full h-full object-cover"
+                            />
                         </div>
                         <div className="mt-4 grid sm:grid-cols-2 gap-3">
-                            <Stat label="Width" value="-- cm" />
-                            <Stat label="Height" value="-- cm" />
+                            <Stat label="Width" value="350mm" />
+                            <Stat label="Height" value="360mm" />
                         </div>
                     </div>
 
                     <div className="space-y-4">
-                        <Callout title="Feature Highlight">
-                            Description of a key feature of Mufasa.
+                        <Callout title={<>First attempt at <span className="text-blue-400">Airsort</span></>}>
+                            Sorting mechanisms are slow, heavy, and huge. We proposed an alternative system that requires no <span className="text-blue-400 font-bold">additional hardware</span>, sorting the balls midair. Powered by <span className="text-blue-400 font-bold">3D projectile motion math</span>, <span className="text-blue-400 font-bold">Airsort</span> was made into reality.
                         </Callout>
 
-                        <Callout title="Another Feature">
-                            Description of another feature.
+                        <Callout title="Shooting While Moving">
+                            Vector calculus approximation to lead shots to counteract robot's motion and score.
                         </Callout>
                     </div>
                 </div>
