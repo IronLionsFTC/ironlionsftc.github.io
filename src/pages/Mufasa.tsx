@@ -60,9 +60,9 @@ export default function Mufasa() {
                 <div className="card p-8 md:p-12">
                     <div className="grid md:grid-cols-5 gap-8 items-center">
                         <div className="md:col-span-3">
-                            <h1 className="font-display text-4xl md:text-5xl">Mufasa</h1>
+                            <h1 className="font-display text-4xl md:text-5xl">Mufasa v1</h1>
                             <p className="mt-4 text-zinc-300 leading-relaxed">
-                                Coming soon...
+                                Our 2025-2026 robot built around <span className="text-blue-400">Rapid Fire</span> and <span className="text-blue-400">Airsort</span>: Fast Cycles, Reliable Hardware and Software.
                             </p>
 
                             {/* Stats */}
