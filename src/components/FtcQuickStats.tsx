@@ -8,20 +8,20 @@ type Props = {
 export default function FtcQuickStats(_props: Props) {
   // === Snapshot numbers ===
   const STATS = {
-    totalNp: { value: 175.15, rank: 151, percentile: 98.04 },
-    auto:    { value: 40.02,  rank: 183, percentile: 97.62 },
-    teleop:  { value: 135.13, rank: 168, percentile: 97.81 },
-    endgame: { value: 18.53,  rank: 410, percentile: 94.64 },
-    bestOpr: { value: 244.80 as number | undefined, rank: undefined as number | undefined, percentile: undefined as number | undefined },
+    totalNp: { value: 83.65, rank: 80, percentile: 98.03 },
+    auto: { value: 26.76, rank: 126, percentile: 96.88 },
+    teleop: { value: 56.90, rank: 95, percentile: 97.66 },
+    endgame: { value: 8.56, rank: 517, percentile: 87.13 },
+    highScore: { value: 211, subtext: "M7 Brisbane South" },
   };
   // ========================
 
   const tiles: { label: string; k: keyof typeof STATS }[] = [
     { label: "Total NP", k: "totalNp" },
-    { label: "Auto",     k: "auto" },
-    { label: "TeleOp",   k: "teleop" },
-    { label: "Endgame",  k: "endgame" },
-    { label: "Best OPR", k: "bestOpr" },
+    { label: "Auto", k: "auto" },
+    { label: "TeleOp", k: "teleop" },
+    { label: "Endgame", k: "endgame" },
+    { label: "High Score", k: "highScore" },
   ];
 
   return (
@@ -43,13 +43,16 @@ export default function FtcQuickStats(_props: Props) {
 
       <div className="mt-5 grid gap-3 md:grid-cols-5">
         {tiles.map(({ label, k }) => {
-          const s = STATS[k];
+          const s = STATS[k] as any; // Cast to any to handle mixed types easily or just rely on union
           const val =
             s.value === undefined || Number.isNaN(s.value) ? "—" : s.value.toFixed(2);
-          const rankLine =
-            s.rank !== undefined || s.percentile !== undefined
-              ? `Rank ${s.rank ?? "—"}${s.percentile !== undefined ? ` / ${s.percentile}%` : ""}`
-              : null;
+
+          let rankLine = null;
+          if (s.subtext) {
+            rankLine = s.subtext;
+          } else if (s.rank !== undefined || s.percentile !== undefined) {
+            rankLine = `Rank ${s.rank ?? "—"}${s.percentile !== undefined ? ` / ${s.percentile}%` : ""}`;
+          }
 
           return (
             <div key={label} className="rounded-xl border border-white/10 bg-white/5 p-4">

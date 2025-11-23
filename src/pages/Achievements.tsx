@@ -18,7 +18,8 @@ const AWARDS: AwardItem[] = [
     season: "DECODE℠",
     event: "Brisbane South Regionals",
     results: ["Inspire Award — 2nd", "Winning Alliance — Captain"],
-    partner: "19450 Splitbot"
+    partner: "19450 Splitbot",
+    video: "https://www.youtube.com/live/E1kXivtOI9Y?si=tiC7fyWm05qdxVpM&t=19636"
   },
   {
     year: "2025",
