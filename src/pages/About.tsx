@@ -46,33 +46,34 @@ function useCountdown(isoStart: string) {
 function CountdownBadge({ isoStart }: { isoStart: string }) {
   const { days, hours, done } = useCountdown(isoStart);
 
+  if (done) {
+    return (
+      <div className="inline-flex items-center px-2 py-1 rounded-md bg-white/5 border border-white/10">
+        <span className="text-[10px] uppercase tracking-widest text-zinc-500 font-medium">
+          Completed
+        </span>
+      </div>
+    );
+  }
+
   return (
-    <div className="shrink-0 md:ml-auto ml-2 self-stretch flex items-center">
+    <div className="inline-flex items-center">
       <div
         className="
-          min-w-[148px] h-[76px]
-          rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm shadow
-          px-4
+          rounded-xl border border-blue-500/20 bg-blue-500/5 backdrop-blur-sm
+          px-3 py-1.5
           flex flex-col items-center justify-center text-center
         "
       >
-        {done ? (
-          <div className="text-[10px] md:text-xs uppercase tracking-widest text-zinc-500 font-medium">
-            Completed
-          </div>
-        ) : (
-          <>
-            <div
-              className="font-display text-2xl md:text-3xl leading-none text-white"
-              suppressHydrationWarning
-            >
-              {days}d&nbsp;{hours}h
-            </div>
-            <div className="mt-2 text-[10px] md:text-xs uppercase tracking-widest text-zinc-400/90 font-medium">
-              Until Start
-            </div>
-          </>
-        )}
+        <div
+          className="font-display text-lg leading-none text-blue-200"
+          suppressHydrationWarning
+        >
+          {days}d&nbsp;{hours}h
+        </div>
+        <div className="text-[9px] uppercase tracking-widest text-blue-400/80 font-medium mt-0.5">
+          Until Start
+        </div>
       </div>
     </div>
   );
@@ -85,7 +86,7 @@ function SeasonTimeline({
   events: SeasonEvent[];
   className?: string;
 }) {
-  // chronological: most recent first → latest last
+  // Sort by date ascending (earliest first)
   const items = React.useMemo(
     () =>
       [...events].sort(
@@ -95,48 +96,68 @@ function SeasonTimeline({
   );
 
   return (
-    <section aria-label="Season timeline" className={`mt-10 ${className}`}>
-      <div className="mb-4">
-        <h3 className="font-display tracking-tight leading-tight text-2xl md:text-3xl text-white">
-          DECODE Season Timeline
+    <section aria-label="Season timeline" className={`mt-12 ${className}`}>
+      <div className="mb-8 text-center">
+        <h3 className="font-display tracking-tight leading-tight text-3xl text-white">
+          Season Timeline
         </h3>
-        <p className="text-sm text-zinc-400">
-          Ordered from most recent event first to the latest.
-        </p>
       </div>
 
-      <div className="relative">
-        {/* vertical spine */}
-        <div className="absolute left-4 sm:left-5 top-0 bottom-0 w-px bg-white/10" />
-        <ol className="space-y-5">
-          {items.map((ev, i) => (
-            <li key={i} className="relative pl-10 sm:pl-12">
-              {/* node */}
-              <span className="absolute left-3.5 sm:left-4 top-4 inline-flex h-3 w-3 rounded-full bg-blue-400 ring-4 ring-blue-400/25" />
-              <div className="card p-4 md:p-5">
-                <div className="flex items-start gap-4">
-                  <div className="min-w-0">
-                    <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                      <time className="font-display text-base font-medium text-blue-300 leading-none">
+      <div className="relative mx-auto max-w-3xl px-4">
+        {/* Vertical spine - Left on mobile, Center on desktop */}
+        <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-white/10 md:-translate-x-1/2" />
+
+        <div className="space-y-8 md:space-y-0">
+          {items.map((ev, i) => {
+            const isPast = new Date(ev.isoStart).getTime() < Date.now();
+            const isEven = i % 2 === 0;
+
+            return (
+              <div key={i} className={`relative flex flex-col md:flex-row items-center md:justify-between ${isEven ? 'md:flex-row-reverse' : ''}`}>
+
+                {/* Desktop Spacer (Empty half) */}
+                <div className="hidden md:block md:w-5/12" />
+
+                {/* Node - Left on mobile, Center on desktop */}
+                <div className="absolute left-8 md:left-1/2 -translate-x-1/2 flex items-center justify-center w-4 h-4 rounded-full bg-zinc-900 border border-blue-500 z-10 shadow-[0_0_10px_rgba(59,130,246,0.4)]">
+                  <div className={`w-1.5 h-1.5 rounded-full ${isPast ? 'bg-zinc-500' : 'bg-blue-400 animate-pulse'}`} />
+                </div>
+
+                {/* Content Card */}
+                <div className="w-full pl-16 md:pl-0 md:w-5/12">
+                  <div className={`relative group ${isEven ? 'md:text-right' : 'md:text-left'}`}>
+
+                    {/* Connector line (Mobile only) */}
+                    <div className="absolute top-2 -left-8 w-8 h-px bg-white/10 md:hidden" />
+
+                    <div className="py-2">
+                      <time className="font-display text-xs font-bold text-blue-400 uppercase tracking-wider block mb-1">
                         {ev.displayDate}
                       </time>
-                      <span className="text-sm text-zinc-500">•</span>
-                      <h4 className="font-display text-xl leading-snug text-white">
+
+                      <h4 className="font-display text-lg md:text-xl text-white leading-tight group-hover:text-blue-200 transition-colors">
                         {ev.title}
                       </h4>
-                    </div>
-                    {ev.description ? (
-                      <p className="mt-2 text-sm text-zinc-400">{ev.description}</p>
-                    ) : null}
-                  </div>
 
-                  {/* right-side countdown */}
-                  <CountdownBadge isoStart={ev.isoStart} />
+                      {ev.description && (
+                        <p className="text-zinc-500 text-xs md:text-sm mt-1 leading-relaxed">
+                          {ev.description}
+                        </p>
+                      )}
+
+                      {/* Countdown for future events - inline or block depending on space */}
+                      {!isPast && (
+                        <div className={`mt-3 ${isEven ? 'md:ml-auto' : 'md:mr-auto'} w-fit`}>
+                          <CountdownBadge isoStart={ev.isoStart} />
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </li>
-          ))}
-        </ol>
+            )
+          })}
+        </div>
       </div>
     </section>
   );
@@ -164,6 +185,12 @@ const SEASON_EVENTS_2025: SeasonEvent[] = [
     isoStart: "2025-12-06",
     isoEnd: "2025-12-07",
     description: "National Championship",
+  },
+  {
+    title: "FIRST® Championship 2026",
+    displayDate: "29 Apr 2026",
+    isoStart: "2026-04-29",
+    description: "World Championship in Houston, TX",
   },
 ];
 

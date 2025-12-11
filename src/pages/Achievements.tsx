@@ -16,6 +16,14 @@ const AWARDS: AwardItem[] = [
   {
     year: "2025",
     season: "DECODE℠",
+    event: "Australian Nationals",
+    results: ["1st Place Control Award"],
+    partner: "18360 Pymble Pride",
+    video: "https://www.youtube.com/live/-gdrLqNvnuw?si=eggkTX4LLHyafsUx"
+  },
+  {
+    year: "2025",
+    season: "DECODE℠",
     event: "Brisbane South Regionals",
     results: ["Inspire Award — 2nd", "Winning Alliance — Captain"],
     partner: "19450 Splitbot",
