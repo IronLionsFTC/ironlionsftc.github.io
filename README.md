@@ -64,6 +64,7 @@ src/
   pages/
     About.tsx
     Robots.tsx                # Valor v3 with CV content & engineering highlights
+    Mufasa.tsx                # Mufasa v1 (2025-26 robot)
     Achievements.tsx
     Outreach.tsx
     Sponsors.tsx
@@ -127,6 +128,12 @@ Update values, redeploy, done.
   * Feature pills
   * CV pipeline and regression visuals
   * Engineering highlights (PID, FSM, FTClib, Pedro Pathing)
+
+* **Mufasa page** — structured content for Mufasa v1, including:
+  * Stats cards (Close Zone, Farzone, Rapid Fire)
+  * Feature pills (Full Metal, Auto Align, Variable Hood)
+  * Tech highlights (Airsort, Shooting While Moving)
+
 
 ---
 
