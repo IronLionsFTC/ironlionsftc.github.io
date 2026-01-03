@@ -97,6 +97,8 @@ export default function Valor() {
               <img
                 src={`${PUB}images/robots/valorv3render.webp`}
                 alt="Valor v3 render"
+                width="800"
+                height="600"
                 className="rounded-2xl border border-white/10 shadow-xl"
               />
             </motion.div>
@@ -111,6 +113,9 @@ export default function Valor() {
             <img
               src={`${PUB}images/robots/robotsize.webp`}
               alt="Valor v3 dimensions and layout"
+              width="600"
+              height="400"
+              loading="lazy"
               className="rounded-xl border border-white/10"
             />
             <div className="mt-4 grid sm:grid-cols-2 gap-3">
@@ -179,6 +184,9 @@ export default function Valor() {
               <img
                 src={`${PUB}images/robots/pipelines.webp`}
                 alt="Pipeline visualisation"
+                width="800"
+                height="400"
+                loading="lazy"
                 className="mt-5 mx-auto block w-full max-w-2xl rounded-xl border border-white/10"
               />
             </div>
@@ -193,6 +201,9 @@ export default function Valor() {
               <img
                 src={`${PUB}images/robots/regressionplot.webp`}
                 alt="Regression plots"
+                width="600"
+                height="400"
+                loading="lazy"
                 className="mt-4 rounded-xl border border-white/10"
               />
             </div>
@@ -214,6 +225,9 @@ export default function Valor() {
               <img
                 src={`${PUB}images/robots/autograb.webp`}
                 alt="Autonomous intake sequence"
+                width="600"
+                height="400"
+                loading="lazy"
                 className="mt-4 rounded-xl border border-white/10"
               />
               <div className="mt-3 text-sm text-blue-300">Outperforms a human driver with 100+ hours of experience</div>
@@ -248,6 +262,9 @@ export default function Valor() {
               <img
                 src={`${PUB}images/robots/pidflow.webp`}
                 alt="PID controller diagram"
+                width="600"
+                height="400"
+                loading="lazy"
                 className="mt-5 w-full max-w-md mx-auto rounded-xl border border-white/10"
               />
             </div>
@@ -318,7 +335,14 @@ export default function Valor() {
               key={g.label}
               className="rounded-2xl overflow-hidden border border-white/10 bg-white/5"
             >
-              <img src={g.src} alt={g.label} className="w-full h-48 object-cover" />
+              <img
+                src={g.src}
+                alt={g.label}
+                width="400"
+                height="300"
+                loading="lazy"
+                className="w-full h-48 object-cover"
+              />
               <figcaption className="px-3 py-2 text-sm text-zinc-300">{g.label}</figcaption>
             </figure>
           ))}
