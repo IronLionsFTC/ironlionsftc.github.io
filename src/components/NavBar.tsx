@@ -11,6 +11,7 @@ const links = [
     children: [
       { to: "/robots/valor", label: "Valor" },
       { to: "/robots/mufasa", label: "Mufasa" },
+      { to: "/robots/surge", label: "Surge" },
     ],
   },
   { to: "/achievements", label: "Achievements" },

@@ -213,10 +213,10 @@ export default function About() {
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <a
-                  href="/robots"
+                  href="/robots/surge"
                   className="rounded-xl border border-blue-600/40 bg-blue-600/10 px-4 py-2 hover:bg-blue-600/20 text-blue-300"
                 >
-                  Meet Valor
+                  Meet Surge
                 </a>
                 <a
                   href="/sponsors"

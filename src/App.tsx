@@ -10,6 +10,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 const About = lazy(() => import("@/pages/About"));
 const Valor = lazy(() => import("@/pages/Valor"));
 const Mufasa = lazy(() => import("@/pages/Mufasa"));
+const Surge = lazy(() => import("@/pages/Surge"));
 const Achievements = lazy(() => import("@/pages/Achievements"));
 const Outreach = lazy(() => import("@/pages/Outreach"));
 const Sponsors = lazy(() => import("@/pages/Sponsors"));
@@ -41,6 +42,8 @@ export default function App() {
             <Route path="/robots" element={<Navigate to="/robots/valor" replace />} />
             <Route path="/robots/valor" element={<Valor />} />
             <Route path="/robots/mufasa" element={<Mufasa />} />
+            <Route path="/robots/surge" element={<Surge />} />
+            <Route path="/surge" element={<Navigate to="/robots/surge" replace />} />
             <Route path="/achievements" element={<Achievements />} />
             <Route path="/outreach" element={<Outreach />} />
             <Route path="/sponsors" element={<Sponsors />} />
