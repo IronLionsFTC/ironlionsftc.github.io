@@ -35,3 +35,12 @@ a:hover .underline-accent { transform: scaleX(1); }
 /* Simple tilt on hover */
 .tilt { transition: transform .3s ease; }
 .tilt:hover { transform: translateY(-2px) rotate3d(1,1,0,1deg); }
+
+/* Fixed backgrounds and repeated backdrop filters are costly on mobile GPUs. */
+@media (max-width: 767px) {
+  body { background-attachment: scroll; }
+  .card {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}

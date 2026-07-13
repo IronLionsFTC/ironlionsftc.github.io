@@ -109,6 +109,7 @@ export default function Sponsors() {
                     alt={s.name}
                     className="h-10 w-auto max-w-[160px] rounded-md border border-white/10 bg-white/5 object-contain"
                     loading="lazy"
+                    decoding="async"
                     onError={(e) => {
                       (e.currentTarget as HTMLImageElement).style.display = "none";
                     }}

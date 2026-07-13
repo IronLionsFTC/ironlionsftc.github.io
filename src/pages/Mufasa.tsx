@@ -89,6 +89,10 @@ export default function Mufasa() {
                             <img
                                 src={`${PUB}images/robots/DECODEREGIONALSROBOT.webp`}
                                 alt="Mufasa Robot"
+                                width={1924}
+                                height={1174}
+                                fetchPriority="high"
+                                decoding="async"
                                 className="aspect-square w-full h-full object-cover rounded-2xl border border-white/10 bg-white/5"
                             />
                         </motion.div>
@@ -104,6 +108,10 @@ export default function Mufasa() {
                             <img
                                 src={`${PUB}images/robots/DECODEREGIONALSBACK.webp`}
                                 alt="Mufasa Back View"
+                                width={1476}
+                                height={1084}
+                                loading="lazy"
+                                decoding="async"
                                 className="w-full h-full object-cover"
                             />
                         </div>

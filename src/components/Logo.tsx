@@ -8,6 +8,7 @@ export default function Logo({ className = "" }: { className?: string }) {
         className="h-9 w-9 rounded-lg border border-white/10 object-contain bg-black/40"
         width={36}
         height={36}
+        decoding="async"
       />
       <div className="leading-tight">
         <div className="font-display text-xl tracking-wide">Iron Lions</div>

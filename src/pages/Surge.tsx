@@ -89,8 +89,12 @@ export default function Surge() {
                             transition={{ duration: 0.4 }}
                         >
                             <img
-                                src={`${PUB}images/robots/Robot.png`}
+                                src={`${PUB}images/robots/Robot.webp`}
                                 alt="Surge Robot Hero"
+                                width={2411}
+                                height={996}
+                                fetchPriority="high"
+                                decoding="async"
                                 className="aspect-square w-full h-full object-cover rounded-2xl border border-white/10 bg-white/5 shadow-2xl"
                             />
                         </motion.div>
@@ -113,22 +117,30 @@ export default function Surge() {
                     {[
                         {
                             label: "Drivetrain",
-                            src: `${PUB}images/robots/driveBase.png`,
+                            src: `${PUB}images/robots/driveBase.webp`,
+                            width: 3840,
+                            height: 1586,
                             desc: "Swerve drive implementation for unmatched omnidirectional movement and agility on the field."
                         },
                         {
                             label: "Shooter / Turret",
-                            src: `${PUB}images/robots/Turret.png`,
+                            src: `${PUB}images/robots/Turret.webp`,
+                            width: 3840,
+                            height: 1586,
                             desc: "Precision turreted aiming system paired with a high-velocity shooter for accurate scoring from any angle."
                         },
                         {
                             label: "Transfer + Intake",
-                            src: `${PUB}images/robots/transfer.png`,
+                            src: `${PUB}images/robots/transfer.webp`,
+                            width: 3840,
+                            height: 1586,
                             desc: "Seamless handoff between intake and shooter mechanisms ensuring minimum downtime and maximum reliability."
                         },
                         {
                             label: "Chassis / Underside",
-                            src: `${PUB}images/robots/robot under.png`,
+                            src: `${PUB}images/robots/robot under.webp`,
+                            width: 2411,
+                            height: 996,
                             desc: "Robust chassis design with low centre of gravity and protected electronics for peak durability."
                         },
                     ].map((sys) => (
@@ -137,6 +149,10 @@ export default function Surge() {
                                 <img
                                     src={sys.src}
                                     alt={sys.label}
+                                    width={sys.width}
+                                    height={sys.height}
+                                    loading="lazy"
+                                    decoding="async"
                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                 />
                             </div>
