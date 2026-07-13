@@ -97,8 +97,10 @@ export default function Valor() {
               <img
                 src={`${PUB}images/robots/valorv3render.webp`}
                 alt="Valor v3 render"
-                width="800"
-                height="600"
+                width="1146"
+                height="1027"
+                fetchPriority="high"
+                decoding="async"
                 className="rounded-2xl border border-white/10 shadow-xl"
               />
             </motion.div>
@@ -116,6 +118,7 @@ export default function Valor() {
               width="600"
               height="400"
               loading="lazy"
+              decoding="async"
               className="rounded-xl border border-white/10"
             />
             <div className="mt-4 grid sm:grid-cols-2 gap-3">
@@ -187,6 +190,7 @@ export default function Valor() {
                 width="800"
                 height="400"
                 loading="lazy"
+                decoding="async"
                 className="mt-5 mx-auto block w-full max-w-2xl rounded-xl border border-white/10"
               />
             </div>
@@ -204,6 +208,7 @@ export default function Valor() {
                 width="600"
                 height="400"
                 loading="lazy"
+                decoding="async"
                 className="mt-4 rounded-xl border border-white/10"
               />
             </div>
@@ -228,6 +233,7 @@ export default function Valor() {
                 width="600"
                 height="400"
                 loading="lazy"
+                decoding="async"
                 className="mt-4 rounded-xl border border-white/10"
               />
               <div className="mt-3 text-sm text-blue-300">Outperforms a human driver with 100+ hours of experience</div>
@@ -265,6 +271,7 @@ export default function Valor() {
                 width="600"
                 height="400"
                 loading="lazy"
+                decoding="async"
                 className="mt-5 w-full max-w-md mx-auto rounded-xl border border-white/10"
               />
             </div>
@@ -341,6 +348,7 @@ export default function Valor() {
                 width="400"
                 height="300"
                 loading="lazy"
+                decoding="async"
                 className="w-full h-48 object-cover"
               />
               <figcaption className="px-3 py-2 text-sm text-zinc-300">{g.label}</figcaption>

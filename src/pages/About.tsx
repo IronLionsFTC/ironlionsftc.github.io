@@ -240,8 +240,14 @@ export default function About() {
               transition={{ duration: 0.4 }}
             >
               <img
-                src="/images/robots/apocrobot.webp"
+                src="/images/robots/apocrobot-960.webp"
+                srcSet="/images/robots/apocrobot-640.webp 640w, /images/robots/apocrobot-960.webp 960w, /images/robots/apocrobot.webp 2242w"
+                sizes="(min-width: 1280px) 568px, (min-width: 768px) 45vw, calc(100vw - 64px)"
                 alt="Iron Lions robot APOC"
+                width={960}
+                height={596}
+                fetchPriority="high"
+                decoding="async"
                 className="rounded-2xl border border-white/10 shadow-xl w-full h-auto object-cover"
               />
             </motion.div>

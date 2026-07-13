@@ -35,8 +35,8 @@ export default function App() {
       <main className="min-h-[60vh]">
         <Suspense fallback={<PageLoader />}>
           <Routes>
-            {/* Landing redirects to About */}
-            <Route path="/" element={<Navigate to="/about" replace />} />
+            {/* Render the landing page directly to avoid an extra client-side navigation. */}
+            <Route path="/" element={<About />} />
 
             <Route path="/about" element={<About />} />
             <Route path="/robots" element={<Navigate to="/robots/valor" replace />} />

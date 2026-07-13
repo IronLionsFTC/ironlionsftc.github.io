@@ -21,8 +21,10 @@ function HardwareItem(props: {
   description: React.ReactNode;
   downloadHref: string;
   downloadName?: string;
+  imageWidth: number;
+  imageHeight: number;
 }) {
-  const { title, image, alt, description, downloadHref, downloadName } = props;
+  const { title, image, alt, description, downloadHref, downloadName, imageWidth, imageHeight } = props;
   return (
     <div className="card p-6 md:p-7">
       <div className="flex items-start justify-between">
@@ -31,7 +33,15 @@ function HardwareItem(props: {
 
       {/* Image */}
       <div className="mt-4 rounded-xl border border-white/10 overflow-hidden bg-white/5">
-        <img src={image} alt={alt} className="w-full h-56 md:h-64 object-cover" />
+        <img
+          src={image}
+          alt={alt}
+          width={imageWidth}
+          height={imageHeight}
+          loading="lazy"
+          decoding="async"
+          className="w-full h-56 md:h-64 object-cover"
+        />
       </div>
 
       {/* Download button */}
@@ -57,18 +67,30 @@ function RepoCard({
   image,
   href,
   blurb,
+  imageWidth,
+  imageHeight,
 }: {
   title: string;
   image: string;
   href: string;
   blurb: React.ReactNode;
+  imageWidth: number;
+  imageHeight: number;
 }) {
   return (
     <div className="card p-6 md:p-8">
       <h3 className="font-display text-xl md:text-2xl">{title}</h3>
 
       <div className="mt-4 rounded-xl border border-white/10 overflow-hidden bg-white/5">
-        <img src={image} alt={title} className="w-full h-56 md:h-64 object-cover" />
+        <img
+          src={image}
+          alt={title}
+          width={imageWidth}
+          height={imageHeight}
+          loading="lazy"
+          decoding="async"
+          className="w-full h-56 md:h-64 object-cover"
+        />
       </div>
 
       <div className="mt-4">
@@ -111,6 +133,8 @@ export default function Resources() {
             title="Co-Axial Four Bar Outtake (APOC)"
             image={`${PUB}images/resources/outtakerender.webp`}
             alt="APOC Intake Claw"
+            imageWidth={2112}
+            imageHeight={960}
             downloadHref={`${PUB}images/resources/Outtake Revised.step`}
             downloadName="outtake24089.step"
             description={
@@ -126,6 +150,8 @@ export default function Resources() {
             title="Intake & Outtake Claw (APOC)"
             image={`${PUB}images/resources/apocouttakeclaw.webp`}
             alt="APOC Claw"
+            imageWidth={2058}
+            imageHeight={1190}
             downloadHref={`${PUB}images/resources/APOC Outtake Claw`}
             downloadName="claw.step"
             description={
@@ -145,6 +171,8 @@ export default function Resources() {
             title="DECODE Code"
             image={`${PUB}images/resources/FTC24089-DECODE.webp`}
             href="https://github.com/IronLionsFTC/FTC24089-DECODE"
+            imageWidth={1200}
+            imageHeight={600}
             blurb={
               <>
                 Season codebase for FTC 24089’s DECODE robot. Includes autonomous routines, Pedro
@@ -163,6 +191,8 @@ export default function Resources() {
             title="Robot Game Rulebook Breakdown"
             image={`${PUB}images/resources/FLLBanner.webp`}
             alt="FLL Rulebook"
+            imageWidth={980}
+            imageHeight={551}
             downloadHref={`${PUB}images/resources/fllrulebookeasyread.pdf`}
             downloadName="Robot Game Rulebook Breakdown"
             description={
@@ -178,4 +208,3 @@ export default function Resources() {
     </>
   );
 }
-
