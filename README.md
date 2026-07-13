@@ -1,144 +1,107 @@
-# Iron Lions FTC — Website
+# Iron Lions FTC website
 
-A fast, modern, and fully responsive website for **FTC Team 24089 — Iron Lions**.
-Built with React + TypeScript, styled with Tailwind CSS, animated with Framer Motion, and deployed via GitHub Pages.
+Official website for **Iron Lions — FTC Team 24089**. It is a static React application built with
+Vite, TypeScript, Tailwind CSS, and React Router, then deployed to GitHub Pages.
 
----
-## Tech Stack
+## Quick start
 
-* **Framework:** React 18 + TypeScript
-* **Bundler/Dev server:** Vite
-* **Routing:** react-router-dom
-* **Styling:** Tailwind CSS
-* **Animation:** Framer Motion
-* **Icons:** lucide-react (+ custom outline Discord icon)
-* **Hosting:** GitHub Pages (workflow in `.github/workflows/deploy.yml`)
-
----
-
-## Quick Start
+Requires Node.js 20 or newer.
 
 ```bash
-# 1) Install
 npm install
-
-# 2) Run locally
 npm run dev
-# -> http://localhost:5173
-
-# 3) Build static site
-npm run build
-
-# 4) Preview the prod build locally
-npm run preview
 ```
 
-> The site is deployed automatically to GitHub Pages on pushes to `main` via the included workflow.
+The local site is available at <http://localhost:5173>.
 
----
+Before pushing a change, run the complete project check:
 
-## Project Structure
-
+```bash
+npm run check
 ```
-public/
-  images/
-    robots/          # robot renders, pipeline/regression images, iterations, etc.
-    team/            # team photos
-    sponsors/        # sponsor logos
-  404.html
-  CNAME              # custom domain (if used)
 
+This performs a strict TypeScript check and a production build.
+
+Run `npm run format` after editing to apply the repository's standard formatting.
+
+## Project map
+
+```text
 src/
+  app/
+    App.tsx                 Application shell, lazy page imports, and routes
   components/
-    Footer.tsx
-    Logo.tsx
-    NavBar.tsx
-    Section.tsx
-    SeasonTimeline.tsx
-    Slideshow.tsx             # used on some pages (About page shows a single hero image now)
-    FtcQuickStats.tsx
-    icons/
-      Discord.tsx             # outline Discord icon matching Lucide style
-  data/
-    site.ts                   # team info, socials, seasons, sponsor tiers
-  pages/
-    About.tsx
-    Robots.tsx                # Valor v3 with CV content & engineering highlights
-    Mufasa.tsx                # Mufasa v1 (2025-26 robot)
-    Achievements.tsx
-    Outreach.tsx
-    Sponsors.tsx
-    Contact.tsx
-    NotFound.tsx
-  App.tsx
-  main.tsx
-  index.css
+    layout/                 Header, footer, logo, and route-level behavior
+    ui/                     Small reusable presentation components
+    content/                Reusable domain components such as robot heroes
+  data/                     Editable navigation and site content
+  lib/                      Shared helpers
+  pages/                    Route components
+    robots/                 Valor, Mufasa, and Surge pages
+  index.css                 Global Tailwind layers and site-wide styles
+  main.tsx                  Browser entry point
+
+public/
+  images/                   Optimized files shipped directly to the browser
+  404.html                  GitHub Pages SPA route fallback
+  CNAME                     Custom domain configuration
+
+source-assets/              Originals and archived files excluded from deployment
 ```
 
----
+## Where to make common changes
 
-## Routing & Navigation
+- Team name, number, email, social links, and season cards: `src/data/site.ts`
+- Header and footer navigation: `src/data/navigation.ts`
+- Sponsor details and logos: `src/data/sponsors.ts`
+- Homepage timeline events: `src/data/seasonTimeline.ts`
+- Route registration and redirects: `src/app/App.tsx`
+- Shared robot hero layout: `src/components/content/RobotHero.tsx`
+- Reusable cards and page sections: `src/components/ui/`
 
-* The top nav lives in `src/components/NavBar.tsx`.
-* Pages are in `src/pages/`.
-* New pages should be registered in `App.tsx` routes and optionally added to the nav.
+Page-specific content should stay in its route component. Content shared by multiple pages, or
+content that non-developers will update regularly, should live in `src/data/`.
 
----
+## Code conventions
 
-## Images & Public Path (important for GitHub Pages)
+- Route components use a `Page` suffix, for example `SponsorsPage.tsx`.
+- Use `Link` or `NavLink` for internal routes. Use `<a>` for external URLs and downloads.
+- Use the `@/` alias for imports from `src/`.
+- Resolve files from `public/` with `publicAsset()` from `src/lib/publicAsset.ts`.
+- Reuse `Section`, `Callout`, `StatCard`, and `FeaturePill` instead of duplicating their markup.
+- Keep configuration and editable lists typed and centralized in `src/data/`.
+- Avoid `any`; the TypeScript configuration checks unused code and parameters.
 
-Static assets in `public/` are served from the site’s **base URL**.
-To ensure images work both **locally** and on **GitHub Pages/custom domains**, reference them using Vite’s base:
+## Asset workflow
 
-```ts
-const PUB = import.meta.env.BASE_URL;
+`public/` is copied directly into every production build, so only browser-ready assets belong there.
 
-// Example
-<img src={`${PUB}images/robots/valorv3render.webp`} alt="Valor v3" />
-```
+1. Keep editable or full-resolution originals in `source-assets/`.
+2. Resize images close to their maximum displayed dimensions.
+3. Export genuine WebP files with descriptive kebab-case names.
+4. Place deployed images in the relevant `public/images/` folder.
+5. Reference them with `publicAsset("images/...")`.
+6. Add `width`, `height`, `loading`, and `decoding` attributes as appropriate.
 
-If you use a leading `/images/...`, it may break when the site is served from a subpath.
+Large downloads such as STEP and PDF files live in `public/images/resources/` because visitors can
+download them directly; they are not fetched during normal page loading.
 
----
+## Available scripts
 
-## Configurable Content
+| Command                | Purpose                                         |
+| ---------------------- | ----------------------------------------------- |
+| `npm run dev`          | Start the Vite development server               |
+| `npm run typecheck`    | Run strict TypeScript validation                |
+| `npm run format`       | Format supported project files with Prettier    |
+| `npm run format:check` | Verify formatting without changing files        |
+| `npm run build`        | Create the production site in `dist/`           |
+| `npm run preview`      | Serve the production build locally on port 5173 |
+| `npm run check`        | Run typecheck and production build together     |
 
-Most editable site content is centralized in `src/data/site.ts`.
+## Deployment
 
-* **TEAM** — name, number, tagline, email
-* **SOCIALS** — YouTube, Instagram, GitHub, Discord
+The workflow in `.github/workflows/deploy.yml` builds and deploys the site whenever `main` is
+updated. Client-side routes are preserved on GitHub Pages through `public/404.html` and the matching
+redirect decoder in `index.html`.
 
-  * Discord uses a local outline icon at `src/components/icons/Discord.tsx`
-* **SEASONS** — list of seasons with titles, summaries, and helpful links
-* **SPONSOR\_TIERS** — tier names, amounts, and perks
-
-Update values, redeploy, done.
-
----
-
-## Components You’ll Touch Often
-
-* **Section** — standard page block with `kicker` and `title`
-* **SeasonTimeline** — themed vertical timeline (with countdowns)
-* **Footer** — includes social links (reads from `SOCIALS`)
-* **NavBar** — main site navigation
-* **Robots page** — structured content for Valor v3, including:
-
-  * Stats cards
-  * Feature pills
-  * CV pipeline and regression visuals
-  * Engineering highlights (PID, FSM, FTClib, Pedro Pathing)
-
-* **Mufasa page** — structured content for Mufasa v1, including:
-  * Stats cards (Close Zone, Farzone, Rapid Fire)
-  * Feature pills (Full Metal, Auto Align, Variable Hood)
-  * Tech highlights (Airsort, Shooting While Moving)
-
-
----
-
-## Scripts
-
-* `npm run dev` — start dev server
-* `npm run build` — production build to `dist/`
-* `npm run preview` — locally preview the production build
+For concise automation-specific instructions, see `AGENTS.md`.

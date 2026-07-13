@@ -38,9 +38,12 @@
         if (l.search && l.search.startsWith("?p=")) {
           var qIndex = l.search.indexOf("&q=");
           var path = decodeURIComponent(
-            (qIndex === -1 ? l.search.slice(3) : l.search.slice(3, qIndex)).replace(/~and~/g, "&")
+            (qIndex === -1 ? l.search.slice(3) : l.search.slice(3, qIndex)).replace(/~and~/g, "&"),
           );
-          var query = qIndex === -1 ? "" : "?" + decodeURIComponent(l.search.slice(qIndex + 3).replace(/~and~/g, "&"));
+          var query =
+            qIndex === -1
+              ? ""
+              : "?" + decodeURIComponent(l.search.slice(qIndex + 3).replace(/~and~/g, "&"));
           var newUrl = "/" + path + query + l.hash;
           window.history.replaceState(null, null, newUrl);
         }

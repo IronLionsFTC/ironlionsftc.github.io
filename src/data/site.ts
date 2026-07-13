@@ -1,5 +1,3 @@
-// src/data/site.ts
-
 export const TEAM = {
   name: "Iron Lions",
   number: "24089",
@@ -8,11 +6,15 @@ export const TEAM = {
 };
 
 export const SOCIALS = [
-  { label: "YouTube",  href: "https://www.youtube.com/@IronLionsFTC",   icon: "youtube" },
+  { label: "YouTube", href: "https://www.youtube.com/@IronLionsFTC", icon: "youtube" },
   { label: "Instagram", href: "https://www.instagram.com/ironlionsftc/", icon: "instagram" },
-  { label: "GitHub",    href: "https://github.com/ironlionsftc",          icon: "github" },
-  { label: "Discord",   href: "https://discord.com/users/733568404081999932", icon: "discord" }, // NEW
-];
+  { label: "GitHub", href: "https://github.com/ironlionsftc", icon: "github" },
+  {
+    label: "Discord",
+    href: "https://discord.com/users/733568404081999932",
+    icon: "discord",
+  },
+] as const;
 
 export const SEASONS = [
   {
@@ -42,36 +44,12 @@ export const SEASONS = [
   {
     year: "2023–24",
     title: "CENTERSTAGE℠",
-    summary:
-      "Perform on the big stage — game pieces, backstage tasks, and endgame challenges.",
+    summary: "Perform on the big stage — game pieces, backstage tasks, and endgame challenges.",
     links: [
       {
         label: "Season Archive",
         href: "https://ftc-resources.firstinspires.org/ftc/archive/2024",
       },
     ],
-  },
-];
-
-export const SPONSOR_TIERS = [
-  {
-    name: "Platinum",
-    amt: "$5,000+",
-    perks: ["Logo prime placement", "Robot naming badge", "Event shoutouts"],
-  },
-  {
-    name: "Gold",
-    amt: "$2,500+",
-    perks: ["Large logo placement", "Pit banner logo", "Social media feature"],
-  },
-  {
-    name: "Silver",
-    amt: "$1,000+",
-    perks: ["Medium logo placement", "Website listing"],
-  },
-  {
-    name: "Bronze",
-    amt: "$250+",
-    perks: ["Logo on website", "Thank-you certificate"],
   },
 ];
